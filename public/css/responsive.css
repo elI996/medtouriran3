@@ -1,0 +1,45 @@
+@media screen and (max-width : 426px){
+   .page-ttl-container p {
+    font-size: 10px!important;
+    color: #CCC;
+    padding: 10px 0 0 0;
+    }
+
+    .page-ttl-container h1 {
+        font-size: 25px!important;
+        font-weight: 500;
+        color: #FFF;
+        margin: 0;
+    } 
+}
+
+
+@media screen and (max-width : 690px){
+    #hm-slider .slider-search .mdl-selectfield {
+        position: relative;
+        display: block;
+        text-align: center;
+        margin: 0 auto !important;
+    }
+    #hm-slider .hm-slider-searchtext {
+        font-size: 1.9rem !important;
+        color: white;
+    }
+}
+
+
+
+@media only screen and (max-width: 992px){
+    .menu {
+        width: 80%!important;
+        padding-top : 65px !important;
+        z-index : 90 !important;
+    }
+    .mobile-menu-close{
+        position : absolute;
+        top : 0;
+        left : 0;
+        margin : 5px 25px;
+        z-index : 999;
+    }
+}

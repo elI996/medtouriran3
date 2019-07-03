@@ -1,0 +1,16 @@
+/node_modules
+.env
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/public/magazine
+/.old
+/.c9
+/.shoplist
+/database_export
+RayaNiko_Com_Ghaleb4558.zip
+/RayaNiko_Com_Ghaleb4558
+/public/index3.php
+/public/c9.sql

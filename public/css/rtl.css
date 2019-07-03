@@ -1,0 +1,153 @@
+#medical-centers-page .doctor-descreiption{
+    text-align: right;
+    padding: 0px 10px;
+}
+
+#medical-center-page .category-list li {
+    text-align: right !important;
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #EEE;
+    font-weight: 500;
+    color: #757575;
+}
+
+
+ul.menu{
+    padding: 0!important
+}
+
+
+/****** HOME   *******/
+
+.hm-about-number {
+    padding: 0 20px 0 0 !important;
+    text-align: right !important;
+}
+
+
+.float{
+    float: right!important;
+}
+
+.float-rev{
+    float: left!important;
+}
+
+#hm-slider i.hm-icon {
+    padding: 0 6px 0 10px!important;
+    right: 6px !important;
+}
+
+#hm-slider i.hm-angle-down {
+    float: left!important;
+    left: 11px!important;
+}
+
+#hm-slider .mdl-selectfield__label {
+    right: 0;
+    padding: 8px 38px 8px 0!important;
+    top: 18px;
+    text-align: right!important;
+}
+
+.menu li li a::before {
+    right: 0!important;
+}
+.menu-dropdown li {
+    padding: 5px 10px 5px 5px!important;
+}
+.menu li li a {
+    text-align: right!important;
+}
+
+.fa-chevron-rl:before {
+    content: "\f053";
+}
+
+.menu-dropdown .menu-dropdown {
+    top: 0;
+    left: -101%!important;
+    margin-right: 3px!important;
+    margin-left: 0!important
+}
+ul .menu-dropdown-2 {
+    right: 99% !important;
+}
+
+.menu-megamenu, .menu-dropdown {
+    right: 5%!important;
+    text-align: right !important;
+}
+
+.hdr-logo {
+    display: inline-block!important;
+    float: left!important;
+    margin: 6px 0 2px 0px!important;
+}
+
+.theme-dropcap {
+    font-size: 60px;
+    float: right!important;
+    color: #32C1CE;
+    line-height: 60px;
+    padding: 0 10px;
+    margin-left: 10px!important;
+    margin-right: 0!important;
+}
+
+.blog-card-date {
+    right: 0!important;
+    border-bottom-left-radius: 50%!important;
+    border-bottom-right-radius: 0!important;
+}
+
+.blog-card-ttl h3 {
+    text-align: right!important;
+}
+
+.blog-card-details p .fa {
+    padding: 0 0 0 5px;
+    font-size: 18px;
+}
+
+
+.mdl-textfield__input,.mdl-textfield__label {
+    text-align: right!important;
+}
+
+.mdl-textfield__error , .mdl-textfield__info{
+    left: 0!important;
+    text-align: left!important;
+}
+
+.form-input-icon {
+    width: 100%;
+    padding: 20px 30px 20px 0!important;
+}
+
+.form-input-icon label {
+    right: 30px!important;
+    left: 0!important;
+}
+.form-input-icon .fa {
+    right: 0!important;
+}
+
+.mdl-selectfield__label {
+
+    text-align: right!important;
+}
+
+.modal-header .close {
+    padding: 15px;
+    margin: -15px auto -15px -15px!important;
+    font-size: 30px!important
+}
+
+
+/*****DEstinations*****/
+
+.card-body {
+    text-align: right!important;
+}
