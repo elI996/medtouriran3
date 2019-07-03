@@ -29,23 +29,18 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="theme-img theme-img-scalerotate">
-                                <img src="/uploads/doctor-1.jpg" alt="">
+                                <img src="{{Helper::placeholder(Voyager::image($doctor->thumbnail('medium')))}}" alt="">
                             </div>
                         </div>
                         <div class="col-sm-8">
                             <div class="doctor-name">
-                                <h3>Dr. Daniel Barnes</h3>
+                                <h3>{{$doctor->getTranslatedAttribute('name')}}</h3>
                                 <span class="badge badge-primary">Head of Department</span>
-                                <p>Orthologist Specilist</p>
-                                <div class="rating-stars">
-                                    <span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </span>
-                                </div>
+                                <p>
+                                    @include('front.common.items', ['items' => $doctor->categories])
+
+                                </p>
+                                @include('front.common.rating', ['star' => $doctor->rate/20])
                             </div>
                             <div class="doctor-details-extra text-left p-0 pt-4">
                                 <!--<p class="text-center"><i class="fa fa-trophy"></i>8 Awards</p>-->
@@ -53,7 +48,10 @@
                                 <!--<p class="text-center"><i class="fa fa-money"></i>Charges: $100</p>-->
                             </div>
                         </div>
-                        <p class="text-muted p-4 m-0 pb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit minus, modi adipisci nesciunt, illum atque temporibus cupiditate blanditiis quo illo cumque doloribus laborum rem neque dolorum, ipsa officiis fugiat expedita.Perspiciatis facere magnam reiciendis modi ratione asperiores fugit minus dolores dignissimos cum.</p>
+                        <p class="text-muted p-4 m-0 pb-0">
+                        {{$doctor->getTranslatedAttribute('about')}}
+                        </p>
+                        @if(!empty($doctor->getTranslatedAttribute('education')))
                         <div class="col-sm-12">
                             <div class="sub-ttl pt-4 font-20">Academic Training</div>
                             <table class="table table-hover">
@@ -66,87 +64,37 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach(json_decode($doctor->getTranslatedAttribute('education'),TRUE) as $education)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Universty of world for Medicine</td>
-                                        <td>Bachelor of Medicine(BM)</td>
-                                        <td><span class="badge badge-danger badge-pill">Dec 1991</span></td>
+                                        <td>{{$loop->index}}</td>
+                                        <td>{{$education['name']}}</td>
+                                        <td>{{$education['degree']}}</td>
+                                        <td><span class="badge badge-{{Helper::color_badge($loop->index)}} badge-pill">{{$education['date']}}</span></td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Medical School for Surgeon</td>
-                                        <td>Bachelor of Surgery(BS)</td>
-                                        <td><span class="badge badge-warning badge-pill">Aug 1994</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>University for Science and Medical</td>
-                                        <td>Doctor of Medicine(MD)</td>
-                                        <td><span class="badge badge-info badge-pill">Apr 1996</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Institue of Science</td>
-                                        <td>Doctor of Osteopathic Medicine</td>
-                                        <td><span class="badge badge-success badge-pill">Oct 1998</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Institue of Science and Medicine</td>
-                                        <td>Master of Surgery</td>
-                                        <td><span class="badge badge-danger badge-pill">May 2001</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Institue of Science and Medicine</td>
-                                        <td>Doctor of Clinical Surgery</td>
-                                        <td><span class="badge badge-warning badge-pill">Feb 2004</span></td>
-                                    </tr>
+                                    @endforeach 
                                 </tbody>
                             </table>
                         </div>
-                        <!--<div class="theme-quote">-->
-                        <!--    <i class="fa fa-quote-left"></i> Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti ad litora torquent per conubia nostra per inceptos himenaeos.-->
-                        <!--</div>-->
+                        @endif
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
+                @if(!empty($doctor->getTranslatedAttribute('skills')))
                 <div class="theme-material-card">
                     <div class="px-2">
                         <div class="sub-ttl font-20 pt-4">Skill & Achievments</div>
+                        @foreach(json_decode($doctor->getTranslatedAttribute('skills'),TRUE) as $skill)
                         <div class="doctor-skills">
-                            <p class="font-14">Brain Surgery <span class="badge badge-primary float-right">75%</span></p>
+                            <p class="font-14">{{$skill['skill']}} <span class="badge badge-{{Helper::color_badge($loop->index)}} float-right">{{$skill['percent']}}%</span></p>
                             <div class="progress progress-md mb-4">
-                                <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar progress-bar-striped bg-{{Helper::color_badge($loop->index)}}" role="progressbar" style="width: {{$skill['percent']}}%" aria-valuenow="{{$skill['percent']}}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
-                        <div class="doctor-skills">
-                            <p class="font-14">Heart Surgery <span class="badge badge-danger float-right">65%</span></p>
-                            <div class="progress progress-md mb-4">
-                                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="doctor-skills">
-                            <p class="font-14">Trauma Surgery <span class="badge badge-success float-right">80%</span></p>
-                            <div class="progress progress-md mb-4">
-                                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="doctor-skills">
-                            <p class="font-14">General Surgery <span class="badge badge-warning float-right">87%</span></p>
-                            <div class="progress progress-md mb-4">
-                                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 87%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="doctor-skills">
-                            <p class="font-14">Weekly Consultancy <span class="badge badge-primary float-right">55%</span></p>
-                            <div class="progress progress-md mb-4">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
+                @endif
                 <div class="theme-material-card">
                     <div class="sub-ttl">Time Table</div>
                     <ul class="timetable">
@@ -161,30 +109,34 @@
                 </div>
             </div>
         </div>
+        @if(!empty($doctor->testimonal))
         <div class="theme-material-card">
             <div class="sub-ttl">Testimonial</div>
             <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <div class="theme-block">
-                        <iframe width="100%" height="275px" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                    @foreach(explode(";",$doctor->testimonal) as $video)
+                    <div class="col-sm-12 col-md-6">
+                        <div class="theme-block">
+                            <iframe width="100%" height="275px" src="https://www.youtube.com/embed/{{$video}}"></iframe>
+                        </div>
+                        
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class="theme-block">
-                        <iframe width="100%" height="275px" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                    </div>
-                </div>
+                    @endforeach
             
             </div>
         </div>
+        @endif
+        @if(!empty($doctor->images))
         <div class="theme-material-card">
             <div class="sub-ttl">Gallery</div>
             <div id="doctor-page--gallery-owl-carousel" class="owl-carousel owl-drag owl-theme theme-owl-dot">
+                
+                <?php $images = json_decode($doctor->images); ?>
+                @foreach($images as $image)
                 <div class="owl-item">
                     <div class="theme-block">
                         <div class="gallery-block theme-block-picture doctor-picture-2">
-                            <a href="/uploads/gallery/gallery-1.jpg">
-                                <img src="/uploads/gallery/gallery-1.jpg" alt="image">
+                            <a href="{{ Voyager::image($image)}}">
+                                <img src="{{ Voyager::image($doctor->getThumbnail($image, 'medium'))}}" alt="image">
                                 <div class="gallery-layer">
                                     <div class="gallery-layer-dark">
                                         <p><i class="fa fa-search-plus"></i></p>
@@ -194,50 +146,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="owl-item">
-                    <div class="theme-block">
-                        <div class="gallery-block theme-block-picture doctor-picture-2">
-                            <a href="/uploads/gallery/gallery-1.jpg">
-                                <img src="/uploads/gallery/gallery-1.jpg" alt="image">
-                                <div class="gallery-layer">
-                                    <div class="gallery-layer-dark">
-                                        <p><i class="fa fa-search-plus"></i></p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-item">
-                    <div class="theme-block">
-                        <div class="gallery-block theme-block-picture doctor-picture-2">
-                            <a href="/uploads/gallery/gallery-1.jpg">
-                                <img src="/uploads/gallery/gallery-1.jpg" alt="image">
-                                <div class="gallery-layer">
-                                    <div class="gallery-layer-dark">
-                                        <p><i class="fa fa-search-plus"></i></p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-item">
-                    <div class="theme-block">
-                        <div class="gallery-block theme-block-picture doctor-picture-2">
-                            <a href="/uploads/gallery/gallery-1.jpg">
-                                <img src="/uploads/gallery/gallery-1.jpg" alt="image">
-                                <div class="gallery-layer">
-                                    <div class="gallery-layer-dark">
-                                        <p><i class="fa fa-search-plus"></i></p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
+        @endif
         <div class="theme-material-card">
             <div class="sub-ttl">Related Doctors</div>
             <div class="row">

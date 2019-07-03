@@ -38,14 +38,19 @@ class Helper
             if(file_exists(public_path() .$image)){
             return $image;
             }
-        }
-        
-        
+        }   
         return '/uploads/service-1.jpg';
     }
 
 
     public static function remove_space($name){
         return preg_replace('/\s+/', '', $name);
+    }
+
+    public static function color_badge($index){
+
+        $colors=array("warning","info","danger","success");
+
+        return $colors[$index%count($colors)];
     }
 }

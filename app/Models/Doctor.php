@@ -14,7 +14,7 @@ class Doctor extends Model
         Resizable;
         
         
-    protected $translatable = ['name', 'about', 'testimonal','address'];
+    protected $translatable = ['name', 'about', 'testimonal','address','education','skills'];
     
     public function networks(){
         return $this->hasMany('App\Models\Network');

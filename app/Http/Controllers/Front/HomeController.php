@@ -107,10 +107,7 @@ class HomeController extends Controller
     }
     
     public function doctor(Doctor $doctor, $slug=""){
-        foreach(json_decode($doctor->education,TRUE) as $education){
-            return $education['name'];
-        } 
-        return json_decode($doctor->education,TRUE);
+        
         return view('front.pages.services.doctors.doctor',compact('doctor'));
     }
 
