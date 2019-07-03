@@ -24,28 +24,23 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row">
+                        @foreach($doctors as $doctor)
                         <div class="col-md-6">
                             <div class="theme-block theme-block-hover">
-                                <a href="{{route('service.doctor.show')}}">
+                                <a href="">
                                     <div class="theme-block-picture">
-                                        <img src="/images/doctors/2.jpg" alt="">
+                                    <img src="{{Helper::placeholder(Voyager::image($doctor->thumbnail('medium'),'avatar'))}}" alt="{{$doctor->getTranslatedAttribute('name')}}">
                                     </div>
                                     <div class="doctor-name">
-                                        <h4><a>Jill Dawson</a></h4>
+                                        <h4><a href={{route('service.doctor.show',[$doctor,$doctor->slug])}}>{{$doctor->getTranslatedAttribute('name')}}</a></h4>
                                     </div>
                                 </a> 
                                 <div class="doctor-details">
                                     <div class="doctor-specility">
-                                        <div class="rating-stars">
-                                            <span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                            </span>
-                                        </div>
-                                        <p>Orthologist</p>
+                                        @include('front.common.rating', ['star' => $doctor->rate/20])
+                                        <p>
+                                            @include('front.common.items', ['items' => $doctor->categories])
+                                        </p>
                                     </div>
                                     <div class="doctor-details-extra">
                                         <!--<p><i class="fa fa-shield"></i>CEO &amp; Founder</p>-->
@@ -54,7 +49,7 @@
                                         <p><i class="fa fa-star"></i>Experience: 17 year</p>
                                     </div>
                                 </div>
-                                <a href="{{route('service.doctor.show')}}">
+                                <a href={{route('service.doctor.show',[$doctor,$doctor->slug])}}>
                                     <button class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary my-3">See profile
                                         <span class="mdl-button__ripple-container">
                                             <span class="mdl-ripple is-animating" style="width: 256.724px; height: 256.724px; transform: translate(-50%, -50%) translate(69px, 30px);"></span>
@@ -63,214 +58,9 @@
                                  </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="theme-block theme-block-hover">
-                                <a href="{{route('service.doctor.show')}}">
-                                    <div class="theme-block-picture">
-                                        <img src="/images/doctors/1.png" alt="">
-                                    </div>
-                                    <div class="doctor-name">
-                                        <h4><a>Daniel Barnes</a></h4>
-                                    </div>
-                                </a> 
-                                <div class="doctor-details">
-                                    <div class="rating-stars">
-                                        <span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                        </span>
-                                    </div>
-                                    <div class="doctor-specility">
-                                        <p>Orthologist</p>
-                                    </div>
-                                    <div class="doctor-details-extra">
-                                        <!--<p><i class="fa fa-shield"></i>CEO &amp; Founder</p>-->
-                                        <p><i class="fa fa-mortar-board"></i>MBBS, MD</p>
-                                        <!--<p><i class="fa fa-trophy"></i>Awards: 8</p>-->
-                                        <p><i class="fa fa-star"></i>Experience: 17 year</p>
-                                    </div>
-
-                                </div>
-                                <a href="{{route('service.doctor.show')}}">
-                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary my-3">See profile
-                                        <span class="mdl-button__ripple-container">
-                                            <span class="mdl-ripple is-animating" style="width: 256.724px; height: 256.724px; transform: translate(-50%, -50%) translate(69px, 30px);"></span>
-                                        </span>
-                                    </button>
-                                 </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="theme-block theme-block-hover">
-                                <a href="{{route('service.doctor.show')}}">
-                                    <div class="theme-block-picture">
-                                        <img src="/images/doctors/2.jpg" alt="">
-                                    </div>
-                                    <div class="doctor-name">
-                                        <h4><a>Jill Dawson</a></h4>
-                                    </div>
-                                </a> 
-                                <div class="doctor-details">
-                                    <div class="doctor-specility">
-                                        <div class="rating-stars">
-                                            <span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                            </span>
-                                        </div>
-                                        <p>Orthologist</p>
-                                    </div>
-                                    <div class="doctor-details-extra">
-                                        <!--<p><i class="fa fa-shield"></i>CEO &amp; Founder</p>-->
-                                        <p><i class="fa fa-mortar-board"></i>MBBS, MD</p>
-                                        <!--<p><i class="fa fa-trophy"></i>Awards: 8</p>-->
-                                        <p><i class="fa fa-star"></i>Experience: 17 year</p>
-                                    </div>
-                                </div>
-                                <a href="{{route('service.doctor.show')}}">
-                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary my-3">See profile
-                                        <span class="mdl-button__ripple-container">
-                                            <span class="mdl-ripple is-animating" style="width: 256.724px; height: 256.724px; transform: translate(-50%, -50%) translate(69px, 30px);"></span>
-                                        </span>
-                                    </button>
-                                 </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="theme-block theme-block-hover">
-                                <a href="{{route('service.doctor.show')}}">
-                                    <div class="theme-block-picture">
-                                        <img src="/images/doctors/1.png" alt="">
-                                    </div>
-                                    <div class="doctor-name">
-                                        <h4><a>Daniel Barnes</a></h4>
-                                    </div>
-                                </a> 
-                                <div class="doctor-details">
-                                    <div class="rating-stars">
-                                        <span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                        </span>
-                                    </div>
-                                    <div class="doctor-specility">
-                                        <p>Orthologist</p>
-                                    </div>
-                                    <div class="doctor-details-extra">
-                                        <!--<p><i class="fa fa-shield"></i>CEO &amp; Founder</p>-->
-                                        <p><i class="fa fa-mortar-board"></i>MBBS, MD</p>
-                                        <!--<p><i class="fa fa-trophy"></i>Awards: 8</p>-->
-                                        <p><i class="fa fa-star"></i>Experience: 17 year</p>
-                                    </div>
-
-                                </div>
-                                <a href="{{route('service.doctor.show')}}">
-                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary my-3">See profile
-                                        <span class="mdl-button__ripple-container">
-                                            <span class="mdl-ripple is-animating" style="width: 256.724px; height: 256.724px; transform: translate(-50%, -50%) translate(69px, 30px);"></span>
-                                        </span>
-                                    </button>
-                                 </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="theme-block theme-block-hover">
-                                <a href="{{route('service.doctor.show')}}">
-                                    <div class="theme-block-picture">
-                                        <img src="/images/doctors/2.jpg" alt="">
-                                    </div>
-                                    <div class="doctor-name">
-                                        <h4><a>Jill Dawson</a></h4>
-                                    </div>
-                                </a> 
-                                <div class="doctor-details">
-                                    <div class="doctor-specility">
-                                        <div class="rating-stars">
-                                            <span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                            </span>
-                                        </div>
-                                        <p>Orthologist</p>
-                                    </div>
-                                    <div class="doctor-details-extra">
-                                        <!--<p><i class="fa fa-shield"></i>CEO &amp; Founder</p>-->
-                                        <p><i class="fa fa-mortar-board"></i>MBBS, MD</p>
-                                        <!--<p><i class="fa fa-trophy"></i>Awards: 8</p>-->
-                                        <p><i class="fa fa-star"></i>Experience: 17 year</p>
-                                    </div>
-                                </div>
-                                <a href="{{route('service.doctor.show')}}">
-                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary my-3">See profile
-                                        <span class="mdl-button__ripple-container">
-                                            <span class="mdl-ripple is-animating" style="width: 256.724px; height: 256.724px; transform: translate(-50%, -50%) translate(69px, 30px);"></span>
-                                        </span>
-                                    </button>
-                                 </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="theme-block theme-block-hover">
-                                <a href="{{route('service.doctor.show')}}">
-                                    <div class="theme-block-picture">
-                                        <img src="/images/doctors/1.png" alt="">
-                                    </div>
-                                    <div class="doctor-name">
-                                        <h4><a>Daniel Barnes</a></h4>
-                                    </div>
-                                </a> 
-                                <div class="doctor-details">
-                                    <div class="rating-stars">
-                                        <span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                        </span>
-                                    </div>
-                                    <div class="doctor-specility">
-                                        <p>Orthologist</p>
-                                    </div>
-                                    <div class="doctor-details-extra">
-                                        <!--<p><i class="fa fa-shield"></i>CEO &amp; Founder</p>-->
-                                        <p><i class="fa fa-mortar-board"></i>MBBS, MD</p>
-                                        <!--<p><i class="fa fa-trophy"></i>Awards: 8</p>-->
-                                        <p><i class="fa fa-star"></i>Experience: 17 year</p>
-                                    </div>
-
-                                </div>
-                                <a href="{{route('service.doctor.show')}}">
-                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary my-3">See profile
-                                        <span class="mdl-button__ripple-container">
-                                            <span class="mdl-ripple is-animating" style="width: 256.724px; height: 256.724px; transform: translate(-50%, -50%) translate(69px, 30px);"></span>
-                                        </span>
-                                    </button>
-                                 </a>
-                            </div>
-                        </div>                        
+                        @endforeach
                     </div>
-                    <ul class="theme-pagination">
-                        <li><a href="#" class="active">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">...</a></li>
-                        <li><a href="#">10</a></li>
-                    </ul>
+                    {{$doctors->links()}}
                 </div>
                 <div class="col-lg-4">
                     <div class="theme-material-card text-center">

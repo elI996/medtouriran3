@@ -34,7 +34,7 @@ class HomeController extends Controller
     
     private $per_page=12;
     private $post_per_home=3;
-    private $doctor_per_home=12;
+    private $doctor_per_home=6;
     private $banner_per_home=3;
     private $cache_minutes=1;
     private $testimonial_per_home=5;
@@ -58,13 +58,12 @@ class HomeController extends Controller
         $categories=Category::where('parent_id','!=',null)->withTranslations(App::getLocale())->get();
         $benefits=Benefit::withTranslations(App::getLocale())->get();
         $posts=Post::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->post_per_home)->get();
-        $doctors=Doctor::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->doctor_per_home)->get();
         $testimonials=Testimonial::where('language',App::getLocale())->orderBy('created_at','desc')->limit($this->testimonial_per_home)->get();
         $packages=Package::where('parent_id',null)->withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->package_per_home)->get();
         $banners=Banner::withTranslations(App::getLocale())->limit($this->banner_per_home)->get();
         $partners=Partner::all();
 
-        return view('front.pages.home.home',compact(['categories','benefits','posts','banners','partners','doctors','testimonials','packages']));
+        return view('front.pages.home.home',compact(['categories','benefits','posts','banners','partners','testimonials','packages']));
     }
     
 
@@ -103,11 +102,11 @@ class HomeController extends Controller
 
 
     public function doctors(){
-        return view('front.pages.services.doctors.doctors');
+        $doctors=Doctor::withTranslations(App::getLocale())->orderBy('created_at','desc')->paginate($this->doctor_per_home);
+        return view('front.pages.services.doctors.doctors',compact('doctors'));
     }
     
     public function doctor(Doctor $doctor, $slug=""){
-        
         return view('front.pages.services.doctors.doctor',compact('doctor'));
     }
 
