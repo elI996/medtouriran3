@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2019 at 04:43 PM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.3.6
+-- Generation Time: Jul 04, 2019 at 11:56 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -37,7 +37,7 @@ CREATE TABLE `banners` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `position` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT 'left',
-  `order` int(11) DEFAULT 1,
+  `order` int(11) DEFAULT '1',
   `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -59,7 +59,7 @@ CREATE TABLE `benefits` (
   `id` int(10) UNSIGNED NOT NULL,
   `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `body` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `body` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -85,15 +85,15 @@ INSERT INTO `benefits` (`id`, `icon`, `title`, `body`, `created_at`, `updated_at
 CREATE TABLE `categories` (
   `id` int(10) UNSIGNED NOT NULL,
   `parent_id` int(10) UNSIGNED DEFAULT NULL,
-  `order` int(11) NOT NULL DEFAULT 1,
+  `order` int(11) NOT NULL DEFAULT '1',
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `body` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `body` text COLLATE utf8mb4_unicode_ci,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `excerpt` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `excerpt` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -109,7 +109,7 @@ INSERT INTO `categories` (`id`, `parent_id`, `order`, `title`, `slug`, `created_
 (6, 2, 6, 'eye care ', 'eye-care', '2019-01-03 14:08:16', '2019-01-27 18:17:10', '<p>This is a test message</p>', 'categories/January2019/0Ggz7VBUjnHluRCACOvv.jpg', NULL, ''),
 (7, 1, 1, 'Hair transplantation', 'health-Hair-transplantation', '2019-01-26 13:08:07', '2019-02-05 08:48:59', '<p>gdfgdfg</p>', 'categories/February2019/vI6KJ9MOq7iU4YjY85HA.jpg', NULL, ''),
 (8, 2, 1, 'Infertility treatment', 'Infertility -IVF-medical', '2019-01-26 13:58:11', '2019-07-02 05:04:58', '<p style=\"text-align: center;\">&nbsp;</p>\n<p style=\"text-align: center;\">&nbsp;</p>\n<p style=\"text-align: center;\">The cost of infertility treatment in Iran is about 10% to 20% of the cost of infertility in the world, so in our country this costs a maximum of $ 2,000, while in Europe and the United States it costs $ 20,000 to treat infertility.</p>\n<h2>&nbsp;</h2>\n<h2>What is infertility?</h2>\n<p>Infertility is referred to as having unprotected sex for six months to one year (depending on your age), but do not get pregnant. In fact, the main sign of infertility is the same as not getting pregnant, and you may not see any signs or symptoms in addition to the mark. Signs of infertility depend on the causes of infertility. Many medical and health conditions can make pregnancy difficult. Of course, in some cases, no specific cause for infertility is detected.</p>\n<h3 id=\"h3sjrd9c31f1w1wjyc1hr07s81645mx2\">&nbsp;Causes of Infertility in Women</h3>\n<p><img title=\"infertility in women\" src=\"/storage/categories/January2019/57762e9b1800002500fa379a.jpeg\" alt=\"\" width=\"326\" height=\"217\" /></p>\n<p>The main causes of infertility in women are:</p>\n<p>1) Ovulation disorder</p>\n<p>2) Impairment of uterine tubes</p>\n<p>3) Endometriosis</p>\n<p>4) Disorders of the uterus or uterus</p>\n<p>5) Immune system disorders</p>\n<p><a class=\"btn btn-default\" href=\"https://medtouriran.com/en\" target=\"_blank\" rel=\"noopener noreferrer\">Read more</a></p>\n<p>&nbsp;----------------------------------------------------------------------------------------------------------------------------------------------------------------</p>\n<h2>&nbsp;</h2>\n<h3 id=\"h13sjrda1fhepybekgrlhusy2sqjqi\"><strong>&nbsp;- Infertility in men</strong></h3>\n<p>&nbsp;<img title=\"Infertility in men\" src=\"/storage/categories/January2019/download1.jpg\" alt=\"\" width=\"275\" height=\"183\" /></p>\n<p>The main causes of infertility in men are:</p>\n<p>1) Sperm disorders</p>\n<p>2) Abnormalities related to body building</p>\n<p><a class=\"btn btn-default\" href=\"https://medtouriran.com/en\" target=\"_blank\" rel=\"noopener noreferrer\">Read more</a></p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>', 'categories/June2019/Fpk0KgybTLfas4gKf1aD.jpg', NULL, 'Infertility is referred to as having unprotected sex for six months to one year (depending on your age), but do not get pregnant. In fact, the main sign of infertility is the same as not getting pregnant, and you may not see any signs or symptoms in addition to the mark. Signs of infertility depend on the causes of infertility. Many medical and health conditions can make pregnancy difficult. Of course, in some cases, no specific cause for infertility is detected.'),
-(10, 1, 8, 'Plastic surgery ', 'plastic-surgery -2', '2019-06-28 17:50:06', '2019-07-02 06:21:43', '<div class=\"mceTmpl\">\n<p class=\"paragraph-medium paragraph-black\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem molestias cumque, dolore assumenda recusandae nobis at harum suscipit temporibus aliquid laudantium, minima aspernatur inventore omnis laboriosam labore, numquam iste earum.</p>\n<div id=\"procedure-page--images\" class=\"row\">\n<div class=\"col-md-4\">\n<div class=\"theme-img procedure-page--images\"><img src=\"/uploads/service-2.jpg\" alt=\"\" /></div>\n</div>\n<div class=\"col-md-4\">\n<div class=\"theme-img theme-img-scale procedure-page--images\"><img src=\"/uploads/service-1.jpg\" alt=\"\" /></div>\n</div>\n<div class=\"col-md-4\">\n<div class=\"theme-img theme-img-scalerotate procedure-page--images\"><img src=\"/uploads/service-5.jpg\" alt=\"\" /></div>\n</div>\n</div>\n<p class=\"paragraph-medium paragraph-black\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut tempora quibusdam dolorem, excepturi hic vel corrupti quos. Tempora illum voluptate perspiciatis, a. Dignissimos tenetur architecto, quae consequatur sit, provident esse totam quo soluta laboriosam beatae commodi dolor, minima omnis accusamus iste, suscipit libero. Beatae soluta excepturi natus quos alias, possimus repellendus pariatur quidem quo quas minus fugit labore delectus iste repudiandae, accusantium. Facilis cumque neque quae architecto? Accusamus, ipsa accusantium deleniti ducimus unde error at doloribus temporibus voluptate et, rem minus quia sequi, blanditiis sed. Id cupiditate, doloribus quibusdam nostrum, ratione nulla, quo alias inventore minima ducimus illo! Nesciunt commodi reprehenderit suscipit corporis quibusdam sed asperiores, culpa atque a illum exercitationem debitis voluptatem dolor, consequuntur eaque iusto unde hic repudiandae esse mollitia. Mollitia nulla ab perspiciatis illum, nobis cum a iusto vero, saepe dolore necessitatibus accusamus ut odio asperiores facere, maiores quis sapiente aut! Ducimus ea aperiam ut sit, soluta quasi est obcaecati odio, omnis dolorum possimus fuga dolorem voluptates, cumque provident. Quidem omnis facere dolore nisi explicabo cum at, cumque doloremque, recusandae quae minima, odit corporis ut amet, vel vitae. Ipsam minima labore ab eveniet vero nam aperiam accusamus doloremque fugiat iusto accusantium perspiciatis cum pariatur laboriosam asperiores hic velit unde, quas recusandae voluptas optio reprehenderit, vitae porro? Dolor, vero modi illum sapiente enim nihil aspernatur quaerat, non hic, atque eum assumenda corrupti earum beatae odit exercitationem. Aperiam eos repellendus corporis nihil aliquid nemo est mollitia, totam nesciunt veritatis magni doloribus! Esse nulla ea sed id provident quisquam illo, velit labore molestias eaque odit laborum veritatis cupiditate harum similique corrupti cum, alias tenetur, eum. Qui deserunt voluptate dolor similique debitis quae vero blanditiis, in voluptatem soluta ea quia! Ea aliquid harum odit cumque dolorum reprehenderit veritatis aspernatur eum ex distinctio. Corporis pariatur ullam, perferendis vero amet similique temporibus voluptate sed. Neque reprehenderit optio, quos laboriosam nulla adipisci eos, beatae in expedita commodi odio fuga sequi quod error et quaerat sed dignissimos. Sed ullam, facere. Aspernatur quam quod error ex odio, animi, officiis repudiandae totam voluptates porro vero facilis voluptas quas, soluta laudantium vel nobis. Molestiae, eum deserunt sapiente laborum corporis atque facilis quibusdam quam ea et explicabo doloribus provident maiores modi odit quaerat non perspiciatis quis laudantium necessitatibus itaque unde, consequuntur earum? Voluptatum dignissimos, maxime accusamus, vel magnam voluptatem saepe consequuntur ea. Beatae consectetur error perspiciatis magnam et ducimus fugiat eveniet ad repudiandae culpa, quas pariatur sed tempore doloremque enim reprehenderit accusantium corporis. Nisi atque quae labore quam laborum autem temporibus voluptatum animi, rem harum. Id, porro! Eum vitae voluptate, aliquid ea omnis iusto libero minus. Quam illo quaerat ipsum, itaque similique porro nesciunt consequatur, hic, voluptas quae fugit optio illum molestiae nostrum! Amet numquam in, expedita repellat fugiat sit. Saepe dolor doloribus inventore tempore minus, cum fuga officiis. Odio deleniti delectus dolorem labore repudiandae ab rem quia ratione dolore harum dicta qui blanditiis itaque assumenda quidem et voluptatibus nemo, rerum optio voluptatem? Debitis sequi similique odit quasi aspernatur tenetur hic quae doloremque sed sunt obcaecati, ipsam quod omnis.</p>\n</div>', NULL, 'fa fa-edit', 'magnam voluptatem saepe consequuntur ea. Beatae consectetur error perspiciatis magnam et ducimus fugiat eveniet ad repudiandae culpa, quas pariatur sed tempore doloremque enim reprehenderit accusantium corporis. Nisi atque quae labore quam laborum autem temporibus voluptatum animi, rem harum. Id, porro! Eum vitae voluptate, aliquid ea omnis iusto libero minus. Quam illo quaerat ipsum, itaque similique porro nesciunt consequatur, hic, voluptas quae fugit optio illum molestiae nostrum! Amet numquam in, expedita repellat fugiat sit. Saepe dolor doloribus inventore tempore minus, cum fuga officiis. Odio deleniti delectus dolorem labore repudiandae ab rem quia ratione dolore harum dicta qui blanditiis itaq');
+(10, 1, 8, 'Plastic surgery ', 'plastic-surgery -2', '2019-06-28 17:50:06', '2019-07-03 13:39:57', '<div class=\"mceTmpl\">\n<p class=\"paragraph-medium paragraph-black\">&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem molestias cumque, dolore assumenda recusandae nobis at harum suscipit temporibus aliquid laudantium, minima aspernatur inventore omnis laboriosam labore, numquam iste earum.</p>\n<div id=\"procedure-page--images\" class=\"row\">\n<div class=\"col-md-4\">\n<div class=\"theme-img procedure-page--images\"><img src=\"/uploads/service-2.jpg\" alt=\"\" /></div>\n</div>\n<div class=\"col-md-4\">\n<div class=\"theme-img theme-img-scale procedure-page--images\"><img src=\"/uploads/service-1.jpg\" alt=\"\" /></div>\n</div>\n<div class=\"col-md-4\">\n<div class=\"theme-img theme-img-scalerotate procedure-page--images\"><img src=\"/uploads/service-5.jpg\" alt=\"\" /></div>\n</div>\n</div>\n<p class=\"paragraph-medium paragraph-black\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut tempora quibusdam dolorem, excepturi hic vel corrupti quos. Tempora illum voluptate perspiciatis, a. Dignissimos tenetur architecto, quae consequatur sit, provident esse totam quo soluta laboriosam beatae commodi dolor, minima omnis accusamus iste, suscipit libero. Beatae soluta excepturi natus quos alias, possimus repellendus pariatur quidem quo quas minus fugit labore delectus iste repudiandae, accusantium. Facilis cumque neque quae architecto? Accusamus, ipsa accusantium deleniti ducimus unde error at doloribus temporibus voluptate et, rem minus quia sequi, blanditiis sed. Id cupiditate, doloribus quibusdam nostrum, ratione nulla, quo alias inventore minima ducimus illo! Nesciunt commodi reprehenderit suscipit corporis quibusdam sed asperiores, culpa atque a illum exercitationem debitis voluptatem dolor, consequuntur eaque iusto unde hic repudiandae esse mollitia. Mollitia nulla ab perspiciatis illum, nobis cum a iusto vero, saepe dolore necessitatibus accusamus ut odio asperiores facere, maiores quis sapiente aut! Ducimus ea aperiam ut sit, soluta quasi est obcaecati odio, omnis dolorum possimus fuga dolorem voluptates, cumque provident. Quidem omnis facere dolore nisi explicabo cum at, cumque doloremque, recusandae quae minima, odit corporis ut amet, vel vitae. Ipsam minima labore ab eveniet vero nam aperiam accusamus doloremque fugiat iusto accusantium perspiciatis cum pariatur laboriosam asperiores hic velit unde, quas recusandae voluptas optio reprehenderit, vitae porro? Dolor, vero modi illum sapiente enim nihil aspernatur quaerat, non hic, atque eum assumenda corrupti earum beatae odit exercitationem. Aperiam eos repellendus corporis nihil aliquid nemo est mollitia, totam nesciunt veritatis magni doloribus! Esse nulla ea sed id provident quisquam illo, velit labore molestias eaque odit laborum veritatis cupiditate harum similique corrupti cum, alias tenetur, eum. Qui deserunt voluptate dolor similique debitis quae vero blanditiis, in voluptatem soluta ea quia! Ea aliquid harum odit cumque dolorum reprehenderit veritatis aspernatur eum ex distinctio. Corporis pariatur ullam, perferendis vero amet similique temporibus voluptate sed. Neque reprehenderit optio, quos laboriosam nulla adipisci eos, beatae in expedita commodi odio fuga sequi quod error et quaerat sed dignissimos. Sed ullam, facere. Aspernatur quam quod error ex odio, animi, officiis repudiandae totam voluptates porro vero facilis voluptas quas, soluta laudantium vel nobis. Molestiae, eum deserunt sapiente laborum corporis atque facilis quibusdam quam ea et explicabo doloribus provident maiores modi odit quaerat non perspiciatis quis laudantium necessitatibus itaque unde, consequuntur earum? Voluptatum dignissimos, maxime accusamus, vel magnam voluptatem saepe consequuntur ea. Beatae consectetur error perspiciatis magnam et ducimus fugiat eveniet ad repudiandae culpa, quas pariatur sed tempore doloremque enim reprehenderit accusantium corporis. Nisi atque quae labore quam laborum autem temporibus voluptatum animi, rem harum. Id, porro! Eum vitae voluptate, aliquid ea omnis iusto libero minus. Quam illo quaerat ipsum, itaque similique porro nesciunt consequatur, hic, voluptas quae fugit optio illum molestiae nostrum! Amet numquam in, expedita repellat fugiat sit. Saepe dolor doloribus inventore tempore minus, cum fuga officiis. Odio deleniti delectus dolorem labore repudiandae ab rem quia ratione dolore harum dicta qui blanditiis itaque assumenda quidem et voluptatibus nemo, rerum optio voluptatem? Debitis sequi similique odit quasi aspernatur tenetur hic quae doloremque sed sunt obcaecati, ipsam quod omnis.</p>\n</div>', NULL, 'fa fa-edit', 'magnam voluptatem saepe consequuntur ea. Beatae consectetur error perspiciatis magnam et ducimus fugiat eveniet ad repudiandae culpa, quas pariatur sed tempore doloremque enim reprehenderit accusantium corporis. Nisi atque quae labore quam laborum autem temporibus voluptatum animi, rem harum. Id, porro! Eum vitae voluptate, aliquid ea omnis iusto libero minus. Quam illo quaerat ipsum, itaque similique porro nesciunt consequatur, hic, voluptas quae fugit optio illum molestiae nostrum! Amet numquam in, expedita repellat fugiat sit. Saepe dolor doloribus inventore tempore minus, cum fuga officiis. Odio deleniti delectus dolorem labore repudiandae ab rem quia ratione dolore harum dicta qui blanditiis itaq');
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ INSERT INTO `categories` (`id`, `parent_id`, `order`, `title`, `slug`, `created_
 CREATE TABLE `cities` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -146,14 +146,14 @@ CREATE TABLE `data_rows` (
   `field` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `required` tinyint(1) NOT NULL DEFAULT 0,
-  `browse` tinyint(1) NOT NULL DEFAULT 1,
-  `read` tinyint(1) NOT NULL DEFAULT 1,
-  `edit` tinyint(1) NOT NULL DEFAULT 1,
-  `add` tinyint(1) NOT NULL DEFAULT 1,
-  `delete` tinyint(1) NOT NULL DEFAULT 1,
-  `details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `order` int(11) NOT NULL DEFAULT 1
+  `required` tinyint(1) NOT NULL DEFAULT '0',
+  `browse` tinyint(1) NOT NULL DEFAULT '1',
+  `read` tinyint(1) NOT NULL DEFAULT '1',
+  `edit` tinyint(1) NOT NULL DEFAULT '1',
+  `add` tinyint(1) NOT NULL DEFAULT '1',
+  `delete` tinyint(1) NOT NULL DEFAULT '1',
+  `details` text COLLATE utf8mb4_unicode_ci,
+  `order` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -345,28 +345,36 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (185, 21, 'testimonial', 'text_area', 'Testimonial  (youteube video id, separate by semi colon ; )', 0, 0, 1, 1, 1, 1, '{}', 15),
 (186, 26, 'id', 'text', 'Id', 1, 1, 0, 0, 0, 0, '{}', 1),
 (187, 26, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '{}', 2),
-(188, 26, 'star', 'text', 'Star', 0, 1, 1, 1, 1, 1, '{}', 4),
-(189, 26, 'city_id', 'text', 'City Id', 0, 1, 1, 1, 1, 1, '{}', 5),
-(190, 26, 'location', 'coordinates', 'Location', 0, 0, 1, 1, 1, 1, '{}', 8),
-(191, 26, 'description', 'rich_text_box', 'Description', 0, 0, 1, 1, 1, 1, '{}', 9),
-(192, 26, 'person', 'number', 'Person Capacity', 0, 0, 1, 1, 1, 1, '{}', 10),
-(193, 26, 'bed', 'number', 'Number of Beds', 0, 0, 1, 1, 1, 1, '{}', 11),
-(194, 26, 'price', 'number', 'Price from', 0, 0, 1, 1, 1, 1, '{}', 12),
-(195, 26, 'image', 'image', 'Image', 0, 0, 1, 1, 1, 1, '{\"resize\":{\"width\":\"1000\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 13),
-(196, 26, 'images', 'multiple_images', 'Images', 0, 0, 1, 1, 1, 1, '{\"resize\":{\"width\":\"1000\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 14),
-(197, 26, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 1, 0, 1, '{}', 15),
-(198, 26, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 16),
-(199, 26, 'hotel_hasone_city_relationship', 'relationship', 'City', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\City\",\"table\":\"cities\",\"type\":\"belongsTo\",\"column\":\"city_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}', 7),
+(188, 26, 'star', 'text', 'Star (from 5)', 0, 1, 1, 1, 1, 1, '{}', 5),
+(189, 26, 'city_id', 'text', 'City Id', 0, 1, 1, 1, 1, 1, '{}', 6),
+(190, 26, 'location', 'coordinates', 'Location', 0, 0, 1, 1, 1, 1, '{}', 9),
+(191, 26, 'description', 'rich_text_box', 'Description', 0, 0, 1, 1, 1, 1, '{}', 10),
+(192, 26, 'person', 'number', 'Person Capacity', 0, 0, 1, 1, 1, 1, '{}', 11),
+(193, 26, 'bed', 'number', 'Number of Beds', 0, 0, 1, 1, 1, 1, '{}', 12),
+(194, 26, 'price', 'number', 'Price from', 0, 0, 1, 1, 1, 1, '{}', 13),
+(195, 26, 'image', 'image', 'Image', 0, 0, 1, 1, 1, 1, '{\"resize\":{\"width\":\"1000\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 14),
+(196, 26, 'images', 'multiple_images', 'Images', 0, 0, 1, 1, 1, 1, '{\"resize\":{\"width\":\"1000\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 15),
+(197, 26, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 1, 0, 1, '{}', 16),
+(198, 26, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 17),
+(199, 26, 'hotel_hasone_city_relationship', 'relationship', 'City', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\City\",\"table\":\"cities\",\"type\":\"belongsTo\",\"column\":\"city_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8),
 (200, 28, 'id', 'text', 'Id', 1, 1, 0, 0, 0, 0, '{}', 1),
 (201, 28, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '{}', 2),
 (202, 28, 'icon', 'text', 'Icon', 0, 1, 1, 1, 1, 1, '{}', 3),
 (203, 28, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 4),
 (204, 28, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(205, 26, 'hotel_belongstomany_hotel_item_relationship', 'relationship', 'hotel_items', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\HotelItem\",\"table\":\"hotel_items\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"hotel_hotel_item\",\"pivot\":\"1\",\"taggable\":\"on\"}', 6),
+(205, 26, 'hotel_belongstomany_hotel_item_relationship', 'relationship', 'hotel_items', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\HotelItem\",\"table\":\"hotel_items\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"hotel_hotel_item\",\"pivot\":\"1\",\"taggable\":\"on\"}', 7),
 (206, 26, 'slug', 'text', 'Slug', 0, 0, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:hotels,slug\"}}', 3),
 (207, 21, 'package_belongstomany_category_relationship', 'relationship', 'categories', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Category\",\"table\":\"categories\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"package_category\",\"pivot\":\"1\",\"taggable\":\"on\"}', 7),
 (208, 17, 'education', 'text_area', 'Education (json format)', 0, 0, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"json\"}}', 4),
-(209, 17, 'skills', 'text_area', 'Skills (json format)', 0, 0, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"json\"}}', 5);
+(209, 17, 'skills', 'text_area', 'Skills (json format)', 0, 0, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"json\"}}', 5),
+(210, 29, 'id', 'text', 'Id', 1, 1, 0, 0, 0, 0, '{}', 1),
+(211, 29, 'video', 'text', 'Youtube Video id', 1, 1, 1, 1, 1, 1, '{}', 2),
+(212, 29, 'body', 'text_area', 'Body', 0, 0, 1, 1, 1, 1, '{}', 4),
+(213, 29, 'featured', 'checkbox', 'Featured', 0, 1, 1, 1, 1, 1, '{}', 5),
+(214, 29, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 1, 0, 1, '{}', 6),
+(215, 29, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(216, 29, 'title', 'text', 'Title', 0, 1, 1, 1, 1, 1, '{}', 3),
+(217, 26, 'type', 'select_dropdown', 'Type', 0, 1, 1, 1, 1, 1, '{\"default\":\"hotel\",\"options\":{\"hotels\":\"Hotel\",\"hostles\":\"Hostle\",\"medical-centers\":\"Medical Center\"}}', 4);
 
 -- --------------------------------------------------------
 
@@ -385,9 +393,9 @@ CREATE TABLE `data_types` (
   `policy_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `controller` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `generate_permissions` tinyint(1) NOT NULL DEFAULT 0,
-  `server_side` tinyint(4) NOT NULL DEFAULT 0,
-  `details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `generate_permissions` tinyint(1) NOT NULL DEFAULT '0',
+  `server_side` tinyint(4) NOT NULL DEFAULT '0',
+  `details` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -417,8 +425,9 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (23, 'timelines', 'timelines', 'Package Timeline', 'Package Timelines', 'voyager-dashboard', 'App\\Models\\Timeline', NULL, NULL, NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"description\"}', '2019-06-30 02:33:20', '2019-06-30 02:42:16'),
 (24, 'cities', 'cities', 'City', 'Cities', 'voyager-tree', 'App\\Models\\City', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-06-30 04:12:02', '2019-06-30 04:12:02'),
 (25, 'package_prices', 'package-prices', 'Package Price', 'Package Prices', 'voyager-credit-card', 'App\\Models\\PackagePrice', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-06-30 09:40:52', '2019-06-30 09:40:52'),
-(26, 'hotels', 'hotels', 'Hotel', 'Hotels', 'voyager-shop', 'App\\Models\\Hotel', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-07-01 01:02:20', '2019-07-01 10:36:44'),
-(28, 'hotel_items', 'hotel-items', 'Hotel Item', 'Hotel Items', NULL, 'App\\Models\\HotelItem', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-07-01 01:31:04', '2019-07-01 01:31:04');
+(26, 'hotels', 'hotels', 'Hotel', 'Hotels', 'voyager-shop', 'App\\Models\\Hotel', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-07-01 01:02:20', '2019-07-04 17:00:57'),
+(28, 'hotel_items', 'hotel-items', 'Hotel Item', 'Hotel Items', NULL, 'App\\Models\\HotelItem', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-07-01 01:31:04', '2019-07-01 01:31:04'),
+(29, 'video_reviews', 'video-reviews', 'Video Review', 'Video Reviews', 'voyager-youtube-play', 'App\\Models\\VideoReview', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-07-04 15:13:21', '2019-07-04 15:40:58');
 
 -- --------------------------------------------------------
 
@@ -429,21 +438,21 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 CREATE TABLE `doctors` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `about` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about` longtext COLLATE utf8mb4_unicode_ci,
   `testimonal` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` tinytext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` tinytext COLLATE utf8mb4_unicode_ci,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `website` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `avatar` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `images` tinytext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `order` int(11) DEFAULT 1,
+  `images` tinytext COLLATE utf8mb4_unicode_ci,
+  `order` int(11) DEFAULT '1',
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `rate` int(11) DEFAULT 100,
-  `education` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `skills` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `rate` int(11) DEFAULT '100',
+  `education` text COLLATE utf8mb4_unicode_ci,
+  `skills` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -514,23 +523,24 @@ CREATE TABLE `hotels` (
   `star` int(11) DEFAULT NULL,
   `city_id` int(11) DEFAULT NULL,
   `location` geometry DEFAULT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
   `person` int(11) DEFAULT NULL,
   `bed` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `images` tinytext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `images` tinytext COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `hotels`
 --
 
-INSERT INTO `hotels` (`id`, `title`, `star`, `city_id`, `location`, `description`, `person`, `bed`, `price`, `image`, `images`, `created_at`, `updated_at`, `slug`) VALUES
-(1, 'Espinas Palace Hotel', 4, 1, 0x0000000001010000002befbfbd43334f4a5defbfbdefbfbd40efbfbd4defbfbd5b4040, '<p class=\"paragraph-medium paragraph-black text-left\" style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; line-height: 1.6; font-size: 16px; font-family: Montserrat, sans-serif; color: #777777;\">Sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n<p class=\"paragraph-medium paragraph-black text-left\" style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; line-height: 1.6; font-size: 16px; font-family: Montserrat, sans-serif; color: #777777;\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum modi libero molestias quaerat veritatis impedit consequatur est ut, officiis, sit ea qui architecto nostrum reiciendis accusantium eaque assumenda quas deserunt!</p>\n<div class=\"row\" style=\"box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px; color: #212529; font-family: Montserrat, sans-serif; font-size: 12px;\">\n<div class=\"col-md-12\" style=\"box-sizing: border-box; position: relative; width: 710px; min-height: 1px; padding-right: 15px; padding-left: 15px; flex: 0 0 100%; max-width: 100%;\">\n<ol class=\"theme-list\" style=\"box-sizing: border-box; margin: 0px 0px 10px; letter-spacing: 0px; font-size: 14px; line-height: 24px; padding: 0px;\">\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">1. Asperiores quis voluptates voluptas</li>\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">2. Asperiores quis voluptates voluptas</li>\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">3. Asperiores quis voluptates voluptas</li>\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">4. Asperiores quis voluptates voluptas</li>\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">5. Asperiores quis voluptates voluptas</li>\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">6. Asperiores quis voluptates voluptas</li>\n</ol>\n</div>\n</div>\n<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; padding: 0px; line-height: 1.6; color: #212529; font-family: Montserrat, sans-serif;\">&nbsp;</p>\n<p class=\"paragraph-medium paragraph-black text-left\" style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; line-height: 1.6; font-size: 16px; font-family: Montserrat, sans-serif; color: #777777;\">Food poisoning, also referred foodborne illness is the result of eating contaminated, spoiled, or toxic food as well as chemical or natural toxins such as poisonous mushrooms. Contamination can also occur at home if food is incorrectly handled or cooked.</p>', 3, 2, 300, 'hotels\\July2019\\sgP3Z9vl3I7rtg05nGLr.jpg', '[\"hotels\\\\July2019\\\\AQ8lgZgt8t9E1ZqT22ID.jpg\",\"hotels\\\\July2019\\\\ZTgOFvIeqqKvyMpzuWuH.jpg\",\"hotels\\\\July2019\\\\eeyyNQLHy3pNhAcnVqzE.jpg\"]', '2019-07-01 10:11:00', '2019-07-01 11:27:20', 'espinas-palace-hotel');
+INSERT INTO `hotels` (`id`, `title`, `star`, `city_id`, `location`, `description`, `person`, `bed`, `price`, `image`, `images`, `created_at`, `updated_at`, `slug`, `type`) VALUES
+(1, 'Espinas Palace Hotel', 4, 1, '\0\0\0\0\0\0\0�1\\=\"@���@', '<p class=\"paragraph-medium paragraph-black text-left\" style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; line-height: 1.6; font-size: 16px; font-family: Montserrat, sans-serif; color: #777777;\">Sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n<p class=\"paragraph-medium paragraph-black text-left\" style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; line-height: 1.6; font-size: 16px; font-family: Montserrat, sans-serif; color: #777777;\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum modi libero molestias quaerat veritatis impedit consequatur est ut, officiis, sit ea qui architecto nostrum reiciendis accusantium eaque assumenda quas deserunt!</p>\n<div class=\"row\" style=\"box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px; color: #212529; font-family: Montserrat, sans-serif; font-size: 12px;\">\n<div class=\"col-md-12\" style=\"box-sizing: border-box; position: relative; width: 710px; min-height: 1px; padding-right: 15px; padding-left: 15px; flex: 0 0 100%; max-width: 100%;\">\n<ol class=\"theme-list\" style=\"box-sizing: border-box; margin: 0px 0px 10px; letter-spacing: 0px; font-size: 14px; line-height: 24px; padding: 0px;\">\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">1. Asperiores quis voluptates voluptas</li>\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">2. Asperiores quis voluptates voluptas</li>\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">3. Asperiores quis voluptates voluptas</li>\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">4. Asperiores quis voluptates voluptas</li>\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">5. Asperiores quis voluptates voluptas</li>\n<li style=\"box-sizing: border-box; list-style: none; line-height: 1.6; color: #555555; padding: 5px 0px; letter-spacing: 0.5px;\">6. Asperiores quis voluptates voluptas</li>\n</ol>\n</div>\n</div>\n<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; padding: 0px; line-height: 1.6; color: #212529; font-family: Montserrat, sans-serif;\">&nbsp;</p>\n<p class=\"paragraph-medium paragraph-black text-left\" style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; line-height: 1.6; font-size: 16px; font-family: Montserrat, sans-serif; color: #777777;\">Food poisoning, also referred foodborne illness is the result of eating contaminated, spoiled, or toxic food as well as chemical or natural toxins such as poisonous mushrooms. Contamination can also occur at home if food is incorrectly handled or cooked.</p>', 3, 2, 300, 'hotels\\July2019\\sgP3Z9vl3I7rtg05nGLr.jpg', '[\"hotels\\\\July2019\\\\AQ8lgZgt8t9E1ZqT22ID.jpg\",\"hotels\\\\July2019\\\\ZTgOFvIeqqKvyMpzuWuH.jpg\",\"hotels\\\\July2019\\\\eeyyNQLHy3pNhAcnVqzE.jpg\"]', '2019-07-01 10:11:00', '2019-07-04 17:04:38', 'espinas-palace-hotel', 'hotels');
 
 -- --------------------------------------------------------
 
@@ -638,7 +648,7 @@ CREATE TABLE `menu_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `route` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parameters` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `parameters` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -647,29 +657,29 @@ CREATE TABLE `menu_items` (
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2018-12-15 19:38:01', '2018-12-15 19:38:01', 'voyager.dashboard', NULL),
-(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 4, '2018-12-15 19:38:01', '2019-01-04 09:43:28', 'voyager.media.index', NULL),
+(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 5, '2018-12-15 19:38:01', '2019-07-04 14:05:57', 'voyager.media.index', NULL),
 (3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 3, '2018-12-15 19:38:01', '2018-12-15 19:38:01', 'voyager.users.index', NULL),
 (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 2, '2018-12-15 19:38:01', '2018-12-15 19:38:01', 'voyager.roles.index', NULL),
-(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 6, '2018-12-15 19:38:01', '2019-01-04 09:45:44', NULL, NULL),
+(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 7, '2018-12-15 19:38:01', '2019-07-04 14:05:58', NULL, NULL),
 (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 2, '2018-12-15 19:38:01', '2019-01-09 18:40:39', 'voyager.menus.index', NULL),
 (7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 4, '2018-12-15 19:38:01', '2019-01-09 18:40:39', 'voyager.database.index', NULL),
 (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 5, '2018-12-15 19:38:01', '2019-01-09 18:40:39', 'voyager.compass.index', NULL),
 (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 6, '2018-12-15 19:38:01', '2019-01-09 18:40:39', 'voyager.bread.index', NULL),
 (10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, 5, 3, '2018-12-15 19:38:01', '2019-01-09 18:40:39', 'voyager.settings.index', NULL),
 (11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, 23, 1, '2018-12-15 19:38:02', '2019-01-09 18:39:19', 'voyager.categories.index', NULL),
-(12, 1, 'Posts', '', '_self', 'voyager-news', NULL, 23, 2, '2018-12-15 19:38:02', '2019-01-09 18:39:19', 'voyager.posts.index', NULL),
-(13, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, 23, 13, '2018-12-15 19:38:02', '2019-02-24 22:12:04', 'voyager.pages.index', NULL),
+(12, 1, 'Posts', '', '_self', 'voyager-news', NULL, 23, 2, '2018-12-15 19:38:02', '2019-07-04 14:02:56', 'voyager.posts.index', NULL),
+(13, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, 23, 14, '2018-12-15 19:38:02', '2019-07-04 14:08:11', 'voyager.pages.index', NULL),
 (14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 1, '2018-12-15 19:38:03', '2019-01-09 18:40:39', 'voyager.hooks', NULL),
 (15, 2, 'Medical tourism', '', '_self', 'fa fa-home', '#000000', NULL, 1, '2018-12-16 14:39:58', '2019-01-26 18:13:03', 'سياحة طبية', 'null'),
 (18, 2, 'Blog', '', '_blank', 'fa fa-pencil-square-o', '#000000', NULL, 2, '2018-12-16 14:59:24', '2019-03-10 03:43:56', NULL, 'null'),
 (19, 2, 'contact us', '', '_self', 'fa fa-envelope', '#000000', NULL, 7, '2018-12-16 15:00:23', '2019-04-01 08:51:28', 'pages.show', '{\"slug\":\"contact-us\"}'),
 (21, 2, 'Packages', '', '_blank', 'fa fa-archive', '#000000', NULL, 3, '2019-01-03 14:46:02', '2019-02-05 06:09:57', 'عروضنا', 'null'),
-(22, 1, 'Social Networks', '', '_self', 'voyager-world', NULL, 23, 4, '2019-01-04 08:38:41', '2019-02-08 19:23:30', 'voyager.socials.index', NULL),
-(23, 1, 'Models', '', '_self', 'voyager-paw', '#000000', NULL, 5, '2019-01-04 09:45:18', '2019-01-04 09:45:28', NULL, ''),
-(24, 1, 'Benefits', '', '_self', 'voyager-receipt', NULL, 23, 12, '2019-01-04 12:42:39', '2019-02-24 22:12:04', 'voyager.benefits.index', NULL),
+(22, 1, 'Social Networks', '', '_self', 'voyager-world', NULL, 23, 4, '2019-01-04 08:38:41', '2019-07-04 14:02:57', 'voyager.socials.index', NULL),
+(23, 1, 'Models', '', '_self', 'voyager-paw', '#000000', NULL, 6, '2019-01-04 09:45:18', '2019-07-04 14:05:58', NULL, ''),
+(24, 1, 'Benefits', '', '_self', 'voyager-receipt', NULL, 23, 13, '2019-01-04 12:42:39', '2019-07-04 14:08:11', 'voyager.benefits.index', NULL),
 (25, 2, 'About us', '', '_self', 'fa fa-envelope', '#000000', 19, 1, '2019-01-08 20:19:45', '2019-04-01 08:52:10', 'pages.show', '{\"slug\":\"about-us\"}'),
-(26, 1, 'Banners', '', '_self', 'voyager-photos', '#000000', 23, 8, '2019-01-10 10:00:49', '2019-02-24 22:12:06', 'voyager.banners.index', 'null'),
-(27, 1, 'Requests', '', '_self', 'voyager-question', NULL, 23, 10, '2019-01-10 12:41:52', '2019-02-24 22:12:04', 'voyager.requests.index', NULL),
+(26, 1, 'Banners', '', '_self', 'voyager-photos', '#000000', 23, 9, '2019-01-10 10:00:49', '2019-07-04 14:08:11', 'voyager.banners.index', 'null'),
+(27, 1, 'Requests', '', '_self', 'voyager-question', NULL, 23, 11, '2019-01-10 12:41:52', '2019-07-04 14:08:11', 'voyager.requests.index', NULL),
 (28, 2, 'Travel to Iran', '', '_blank', 'fa fa-plane', '#000000', 15, 1, '2019-01-23 02:05:43', '2019-01-26 19:06:19', 'travel.index', 'null'),
 (29, 2, 'our services', '', '_blank', 'fa fa-medkit', '#000000', NULL, 4, '2019-01-23 02:18:17', '2019-02-05 06:09:57', 'خدماتنا', 'null'),
 (30, 2, 'Quick Request', '', '_blank', 'fa fa-book', '#000000', NULL, 5, '2019-01-23 02:38:45', '2019-03-03 10:21:07', 'pages.show', '{\"slug\":\"quick-quotes\"}'),
@@ -690,19 +700,21 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (46, 2, 'Dental health', '', '_blank', NULL, '#000000', 39, 1, '2019-01-23 06:23:21', '2019-01-23 06:23:36', 'Dental health', 'null'),
 (47, 2, 'Eye care', '', '_blank', NULL, '#000000', 39, 2, '2019-01-23 06:23:58', '2019-01-23 06:24:07', 'Eye care', 'null'),
 (48, 2, 'Fertility treatment –IVF', '', '_blank', NULL, '#000000', 39, 3, '2019-01-23 06:24:31', '2019-02-05 08:50:47', 'pages.show', '{\"slug\":\"Infertility -IVF-medical\"}'),
-(49, 1, 'Partners', '', '_self', 'voyager-people', '#000000', 23, 9, '2019-02-02 23:42:57', '2019-02-24 22:12:04', 'voyager.partners.index', 'null'),
-(50, 1, 'Important Links', '', '_self', 'voyager-paperclip', '#000000', 23, 11, '2019-02-03 01:32:59', '2019-02-24 22:12:04', 'voyager.links.index', 'null'),
-(51, 1, 'Doctors', '', '_self', 'voyager-people', '#000000', 23, 3, '2019-02-08 19:01:07', '2019-02-08 19:24:43', 'voyager.doctors.index', 'null'),
-(52, 1, 'Doctors Socials', '', '_self', 'voyager-chat', '#000000', 23, 5, '2019-02-08 19:30:50', '2019-02-08 19:34:08', 'voyager.networks.index', 'null'),
+(49, 1, 'Partners', '', '_self', 'voyager-people', '#000000', 23, 10, '2019-02-02 23:42:57', '2019-07-04 14:08:11', 'voyager.partners.index', 'null'),
+(50, 1, 'Important Links', '', '_self', 'voyager-paperclip', '#000000', 23, 12, '2019-02-03 01:32:59', '2019-07-04 14:08:11', 'voyager.links.index', 'null'),
+(51, 1, 'Doctors', '', '_self', 'voyager-people', '#000000', 23, 3, '2019-02-08 19:01:07', '2019-07-04 14:02:57', 'voyager.doctors.index', 'null'),
+(52, 1, 'Doctors Socials', '', '_self', 'voyager-chat', '#000000', 23, 15, '2019-02-08 19:30:50', '2019-07-04 14:08:11', 'voyager.networks.index', 'null'),
 (53, 2, 'Our team', '', '_self', NULL, '#000000', 19, 2, '2019-02-24 07:35:32', '2019-04-01 08:52:15', 'pages.show', '{\"slug\":\"Our-team\"}'),
-(55, 1, 'Testimonials', '', '_self', 'voyager-star', '#000000', 23, 7, '2019-02-24 20:24:19', '2019-02-24 22:12:06', 'voyager.testimonials.index', 'null'),
-(56, 1, 'Packages', '', '_self', 'voyager-backpack', '#000000', 23, 6, '2019-02-24 21:19:53', '2019-02-24 22:12:04', 'voyager.packages.index', 'null'),
-(57, 1, 'Package Items', '', '_self', 'voyager-list-add', NULL, NULL, 8, '2019-06-29 06:08:58', '2019-06-29 06:08:58', 'voyager.package-items.index', NULL),
-(58, 1, 'Package Timelines', '', '_self', 'voyager-dashboard', NULL, NULL, 9, '2019-06-30 02:33:20', '2019-06-30 02:33:20', 'voyager.timelines.index', NULL),
-(59, 1, 'Cities', '', '_self', 'voyager-tree', NULL, NULL, 10, '2019-06-30 04:12:03', '2019-06-30 04:12:03', 'voyager.cities.index', NULL),
-(60, 1, 'Package Prices', '', '_self', 'voyager-credit-card', NULL, NULL, 11, '2019-06-30 09:40:52', '2019-06-30 09:40:52', 'voyager.package-prices.index', NULL),
-(61, 1, 'Hotels', '', '_self', 'voyager-shop', NULL, NULL, 12, '2019-07-01 01:02:22', '2019-07-01 01:02:22', 'voyager.hotels.index', NULL),
-(62, 1, 'Hotel Items', '', '_self', NULL, NULL, NULL, 13, '2019-07-01 01:31:05', '2019-07-01 01:31:05', 'voyager.hotel-items.index', NULL);
+(55, 1, 'Testimonials', '', '_self', 'voyager-star', '#000000', 23, 5, '2019-02-24 20:24:19', '2019-07-04 14:06:53', 'voyager.testimonials.index', 'null'),
+(56, 1, 'Packages', '', '_self', 'voyager-backpack', '#000000', 63, 1, '2019-02-24 21:19:53', '2019-07-04 14:05:51', 'voyager.packages.index', 'null'),
+(57, 1, 'Package Items', '', '_self', 'voyager-list-add', NULL, 63, 2, '2019-06-29 06:08:58', '2019-07-04 14:05:51', 'voyager.package-items.index', NULL),
+(58, 1, 'Package Timelines', '', '_self', 'voyager-dashboard', NULL, 63, 3, '2019-06-30 02:33:20', '2019-07-04 14:05:52', 'voyager.timelines.index', NULL),
+(59, 1, 'Cities', '', '_self', 'voyager-tree', NULL, 23, 6, '2019-06-30 04:12:03', '2019-07-04 14:06:59', 'voyager.cities.index', NULL),
+(60, 1, 'Package Prices', '', '_self', 'voyager-credit-card', NULL, 63, 4, '2019-06-30 09:40:52', '2019-07-04 14:05:52', 'voyager.package-prices.index', NULL),
+(61, 1, 'Hotels', '', '_self', 'voyager-shop', NULL, 23, 7, '2019-07-01 01:02:22', '2019-07-04 14:07:15', 'voyager.hotels.index', NULL),
+(62, 1, 'Hotel Items', '', '_self', NULL, NULL, 23, 8, '2019-07-01 01:31:05', '2019-07-04 14:08:10', 'voyager.hotel-items.index', NULL),
+(63, 1, 'Packages', '', '_self', 'voyager-backpack', '#000000', NULL, 4, '2019-07-04 14:04:30', '2019-07-04 14:05:57', NULL, ''),
+(64, 1, 'Video Reviews', '', '_self', 'voyager-youtube-play', NULL, NULL, 8, '2019-07-04 15:13:21', '2019-07-04 15:13:21', 'voyager.video-reviews.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -785,15 +797,15 @@ CREATE TABLE `packages` (
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `before_price` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `after_price` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `timeline` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `timeline` text COLLATE utf8mb4_unicode_ci,
   `price` int(11) NOT NULL,
   `subtitle` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `images` tinytext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `images` tinytext COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `options` text COLLATE utf8mb4_unicode_ci,
   `background` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parent_id` int(10) UNSIGNED DEFAULT NULL,
   `video` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -979,16 +991,16 @@ CREATE TABLE `pages` (
   `id` int(10) UNSIGNED NOT NULL,
   `author_id` int(11) NOT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `excerpt` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `body` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `excerpt` text COLLATE utf8mb4_unicode_ci,
+  `body` text COLLATE utf8mb4_unicode_ci,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_keywords` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_description` text COLLATE utf8mb4_unicode_ci,
+  `meta_keywords` text COLLATE utf8mb4_unicode_ci,
   `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `css` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `css` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1187,7 +1199,12 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (118, 'read_hotel_items', 'hotel_items', '2019-07-01 01:31:04', '2019-07-01 01:31:04'),
 (119, 'edit_hotel_items', 'hotel_items', '2019-07-01 01:31:04', '2019-07-01 01:31:04'),
 (120, 'add_hotel_items', 'hotel_items', '2019-07-01 01:31:04', '2019-07-01 01:31:04'),
-(121, 'delete_hotel_items', 'hotel_items', '2019-07-01 01:31:04', '2019-07-01 01:31:04');
+(121, 'delete_hotel_items', 'hotel_items', '2019-07-01 01:31:04', '2019-07-01 01:31:04'),
+(122, 'browse_video_reviews', 'video_reviews', '2019-07-04 15:13:21', '2019-07-04 15:13:21'),
+(123, 'read_video_reviews', 'video_reviews', '2019-07-04 15:13:21', '2019-07-04 15:13:21'),
+(124, 'edit_video_reviews', 'video_reviews', '2019-07-04 15:13:21', '2019-07-04 15:13:21'),
+(125, 'add_video_reviews', 'video_reviews', '2019-07-04 15:13:21', '2019-07-04 15:13:21'),
+(126, 'delete_video_reviews', 'video_reviews', '2019-07-04 15:13:21', '2019-07-04 15:13:21');
 
 -- --------------------------------------------------------
 
@@ -1401,7 +1418,12 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (118, 1),
 (119, 1),
 (120, 1),
-(121, 1);
+(121, 1),
+(122, 1),
+(123, 1),
+(124, 1),
+(125, 1),
+(126, 1);
 
 -- --------------------------------------------------------
 
@@ -1415,14 +1437,14 @@ CREATE TABLE `posts` (
   `category_id` int(11) DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `seo_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `excerpt` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `excerpt` text COLLATE utf8mb4_unicode_ci,
   `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_keywords` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_description` text COLLATE utf8mb4_unicode_ci,
+  `meta_keywords` text COLLATE utf8mb4_unicode_ci,
   `status` enum('PUBLISHED','DRAFT','PENDING') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'DRAFT',
-  `featured` tinyint(1) NOT NULL DEFAULT 0,
+  `featured` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1452,7 +1474,7 @@ CREATE TABLE `requests` (
   `category_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `message` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `message` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1499,10 +1521,10 @@ CREATE TABLE `settings` (
   `id` int(10) UNSIGNED NOT NULL,
   `key` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `display_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `value` text COLLATE utf8mb4_unicode_ci,
+  `details` text COLLATE utf8mb4_unicode_ci,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `order` int(11) NOT NULL DEFAULT 1,
+  `order` int(11) NOT NULL DEFAULT '1',
   `group` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1585,7 +1607,7 @@ INSERT INTO `testimonials` (`id`, `name`, `position`, `quote`, `avatar`, `create
 (3, 'Matteo', 'ITALY', 'I really suggest this professional medical tourism company due to their qualified medical centers and doctors. I actually enjoyed the Parsian hotel with it\'s smiley servants.', 'testimonials/February2019/gRxRhuAs9c0fiWDUrq2B.jpg', '2019-02-25 13:31:00', '2019-03-01 19:40:22', 'en'),
 (4, 'احمد غريب حسين', 'عراق', 'لقد ساعدني شركة مدتورایران في علاج ابني. أنا حقا أشكركم على تصرفاتكم الترحيبية', 'testimonials/April2019/5YZLTahCGmLIDHebeqMr.jpeg', '2019-03-01 19:41:00', '2019-04-25 19:05:39', 'ar'),
 (5, 'یحیي', 'عمان', 'أقترح إيران لرحلة طبية بسبب الخدمات بأسعار معقولة والمدن عالية الجودة', 'testimonials/April2019/02UINiHj1UwgRcXcKjlM.JPG', '2019-03-01 19:41:00', '2019-04-30 01:10:19', 'ar'),
-(6, 'محمد الحمدی', 'عراق', 'ساعدت الشركة مدتورإیران ابني في علاج عينيه في شيراز. أنا حقا شكرا لأسعار معقولة والخدمات المؤهلة', 'testimonials/April2019/UnkzvoQ4K8a6RSwvRLto.JPG', '2019-04-30 01:05:00', '2019-04-30 01:05:50', 'ar');
+(6, 'محمد الحمدی', 'عراق', 'ساعدت الشركة مدتورإیران ابني في علاج عينيه في شيراز. أنا حقا شكرا لأسعار معقولة والخدمات المؤهلة', 'testimonials\\July2019\\XuVSqBb3ok9snVubuCSB.jpg', '2019-04-30 01:05:00', '2019-07-04 15:57:47', 'ar');
 
 -- --------------------------------------------------------
 
@@ -1980,7 +2002,9 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (407, 'doctors', 'education', 12, 'ar', '{\r\n    \"1\": {\r\n        \"name\": \"Universty of world for Medicine\",\r\n        \"degree\": \"Bachelor of Medicine(BM)\",\r\n        \"date\": \"Dec 1991\"\r\n    },\r\n    \"2\": {\r\n        \"name\": \"Universty of world for Medicine1\",\r\n        \"degree\": \"Bachelor of Medicine(BM)1\",\r\n        \"date\": \"Dec 1991 1\"\r\n    }\r\n}', '2019-07-03 09:56:43', '2019-07-03 09:56:43'),
 (408, 'doctors', 'skills', 12, 'ar', '{\r\n    \"1\": {\r\n        \"skill\": \"Brain Surgery\",\r\n        \"percent\": \"75\"\r\n    },\r\n    \"2\": {\r\n        \"skill\": \"Heart Surgery\",\r\n        \"percent\": \"65\"\r\n    },\r\n    \"3\": {\r\n        \"skill\": \"Trauma Surgery\",\r\n        \"percent\": \"85\"\r\n    },\r\n    \"4\": {\r\n        \"skill\": \"Central Surgery\",\r\n        \"percent\": \"89\"\r\n    },\r\n    \"5\": {\r\n        \"skill\": \"Weekly Consultancy\",\r\n        \"percent\": \"55\"\r\n    }\r\n}', '2019-07-03 09:56:43', '2019-07-03 09:56:43'),
 (409, 'doctors', 'education', 10, 'ar', '{}', '2019-07-03 09:57:05', '2019-07-03 09:57:05'),
-(410, 'doctors', 'skills', 10, 'ar', '{}', '2019-07-03 09:57:05', '2019-07-03 09:57:05');
+(410, 'doctors', 'skills', 10, 'ar', '{}', '2019-07-03 09:57:05', '2019-07-03 09:57:05'),
+(411, 'data_types', 'display_name_singular', 29, 'ar', 'Video Review', '2019-07-04 15:16:56', '2019-07-04 15:16:56'),
+(412, 'data_types', 'display_name_plural', 29, 'ar', 'Video Reviews', '2019-07-04 15:16:56', '2019-07-04 15:16:56');
 
 -- --------------------------------------------------------
 
@@ -1997,7 +2021,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `settings` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `settings` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2020,6 +2044,30 @@ CREATE TABLE `user_roles` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `role_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video_reviews`
+--
+
+CREATE TABLE `video_reviews` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `video` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` mediumtext COLLATE utf8mb4_unicode_ci,
+  `featured` tinyint(4) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `video_reviews`
+--
+
+INSERT INTO `video_reviews` (`id`, `video`, `body`, `featured`, `created_at`, `updated_at`, `title`) VALUES
+(1, 'gMccvtUc3B8', 'Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad repellat facilis, optio cupiditate. Ab minima qui, maiores delectus. Recusandae, voluptatem.', 0, '2019-07-04 15:15:00', '2019-07-04 15:42:00', 'lorem ipsum1'),
+(2, 'gMccvtUc3B8', 'Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad repellat facilis, optio cupiditate. Ab minima qui, maiores delectus. Recusandae, voluptatem 2.', 1, '2019-07-04 15:17:00', '2019-07-04 15:41:28', 'lorem ipsum');
 
 --
 -- Indexes for dumped tables
@@ -2279,6 +2327,12 @@ ALTER TABLE `user_roles`
   ADD KEY `user_roles_role_id_index` (`role_id`);
 
 --
+-- Indexes for table `video_reviews`
+--
+ALTER TABLE `video_reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -2310,13 +2364,13 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
 
 --
 -- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -2364,7 +2418,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -2442,7 +2496,7 @@ ALTER TABLE `partners`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -2490,12 +2544,18 @@ ALTER TABLE `timelines`
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=411;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=413;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `video_reviews`
+--
+ALTER TABLE `video_reviews`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --

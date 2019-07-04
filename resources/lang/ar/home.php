@@ -33,5 +33,8 @@ return [
     "message"=>"Message",
     "book_now"=>"احجز الآن",
     "special_services"=>"خدمات خاصة",
-    "popular_treatment"=>"لبتدالتل"
+    "popular_treatment"=>"لبتدالتل",
+    "hotels"=>"هتل ها",
+    "medicals"=>"Medical Centers",
+    "hostels"=>"Hostels"
 ];

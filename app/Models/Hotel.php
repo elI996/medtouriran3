@@ -25,4 +25,11 @@ class Hotel extends Model
     public function items(){
         return $this->belongsToMany('App\Models\HotelItem','hotel_hotel_item','hotel_id','hotel_item_id');
     }
+
+    public function service(){
+        $type=array("hotels"=>trans('home.hotels'),
+                    "hostles"=>trans('home.hostels'),
+                    "medical-centers"=>trans('home.medicalss'));
+        return $type[$this->type];
+    }
 }

@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="theme-img theme-img-scalerotate">
-                                <img src="{{Helper::placeholder(Voyager::image($doctor->thumbnail('medium')))}}" alt="">
+                                <img src="{{Helper::placeholder(Voyager::image($doctor->thumbnail('medium')))}}" alt="{{$doctor->getTranslatedAttribute('name')}}">
                             </div>
                         </div>
                         <div class="col-sm-8">

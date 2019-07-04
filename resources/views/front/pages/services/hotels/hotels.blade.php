@@ -14,8 +14,8 @@
     <div class="page-ttl">
         <div class="layer-stretch">
             <div class="page-ttl-container">
-                <h1>Hotels</h1>
-                <p><a href="{{route('home')}}">Home</a> &#8594; <a href="{{route('service')}}">Services</a> &#8594; <span>Hotels</span></p>
+                <h1>{{$hotels->first()->service()}}</h1>
+                <p><a href="{{route('home')}}">Home</a> &#8594; <a href="{{route('service')}}">Services</a> &#8594; <span>{{$hotels->first()->service()}}</span></p>
             </div>
         </div> 
     </div><!-- End Page Title Section -->
@@ -42,7 +42,7 @@
                                 <img src="{{Voyager::image($hotel->thumbnail('medium'))}}" alt="{{$hotel->getTranslatedAttribute('title')}}">
                             </div>
                             <div class="doctor-name">
-                            <h4><a href="{{route('service.hotel.show',[$hotel,$hotel->slug])}}">{{$hotel->getTranslatedAttribute('title')}}</a></h4>
+                            <h4><a href="{{route('service.hotel.show',[$hotel->type,$hotel,$hotel->slug])}}">{{$hotel->getTranslatedAttribute('title')}}</a></h4>
                             </div>
                             <div class="doctor-details">
                                 <div class="doctor-specility">
@@ -59,7 +59,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <a href="{{route('service.hotel.show',[$hotel,$hotel->slug])}}">
+                                <a href="{{route('service.hotel.show',[$hotel->type,$hotel,$hotel->slug])}}">
                                     <button class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary my-3">More Info
                                         <span class="mdl-button__ripple-container">
                                             <span class="mdl-ripple is-animating" style="width: 256.724px; height: 256.724px; transform: translate(-50%, -50%) translate(69px, 30px);"></span>

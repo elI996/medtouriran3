@@ -38,6 +38,11 @@ function tinymce_init_callback(editor)
                           title: "Procedure Template",
                           url: "http://127.0.0.1:8000/vendor/tinymce/templates/procedure-en.html",
                           description: "Services Template English"
+                        },
+                        {
+                          title: "Blog Template",
+                          url: "http://127.0.0.1:8000/vendor/tinymce/templates/blog-en.html",
+                          description: "Blog Template English"
                         }
                      ],
       });

@@ -27,6 +27,7 @@ use App\Models\Testimonial;
 use App\Models\Package;
 use App\Models\Hotel;
 use App\Models\City;
+use App\Models\VideoReview;
 use App\Models\Request as Req;
 
 class HomeController extends Controller
@@ -41,6 +42,7 @@ class HomeController extends Controller
     private $package_per_home=3;
     private $package_per_packages=6;
     private $package_per_procedure=2;
+    private $post_per_blog=6;
     
     public function __construct() {
        $latest_posts=Post::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit(2)->get();
@@ -58,12 +60,11 @@ class HomeController extends Controller
         $categories=Category::where('parent_id','!=',null)->withTranslations(App::getLocale())->get();
         $benefits=Benefit::withTranslations(App::getLocale())->get();
         $posts=Post::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->post_per_home)->get();
-        $testimonials=Testimonial::where('language',App::getLocale())->orderBy('created_at','desc')->limit($this->testimonial_per_home)->get();
         $packages=Package::where('parent_id',null)->withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->package_per_home)->get();
         $banners=Banner::withTranslations(App::getLocale())->limit($this->banner_per_home)->get();
         $partners=Partner::all();
 
-        return view('front.pages.home.home',compact(['categories','benefits','posts','banners','partners','testimonials','packages']));
+        return view('front.pages.home.home',compact(['categories','benefits','posts','banners','partners','packages']));
     }
     
 
@@ -78,13 +79,16 @@ class HomeController extends Controller
     }
 
 
-    public function hotels(){
-        $hotels=Hotel::withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
+    public function hotels($type){
+        $hotels=Hotel::where('type',$type)->withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
+        if(count($hotels)<1){
+            abort(404);
+        };
         $cities=City::withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
         return view('front.pages.services.hotels.hotels',compact('hotels','cities'));
     }
 
-    public function hotel(Hotel $hotel,$slug=""){
+    public function hotel($type,Hotel $hotel,$slug=""){
         return view('front.pages.services.hotels.hotel',compact('hotel'));
     }
 
@@ -110,6 +114,23 @@ class HomeController extends Controller
         return view('front.pages.services.doctors.doctor',compact('doctor'));
     }
 
+
+    public function blogs(){
+        $posts=Post::withTranslations(App::getLocale())->orderBy('created_at','desc')->paginate($this->post_per_blog);
+        $recent_posts=Post::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->post_per_blog)->get();
+        return view('front.pages.blog.posts',compact('posts','recent_posts'));
+    }
+    
+    public function blog(Post $single_post,$slug=""){
+        $recent_posts=Post::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->post_per_blog)->get();
+        return view('front.pages.blog.post',compact('single_post','recent_posts'));
+    }
+
+    public function patient_review(){
+        $videos=VideoReview::withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
+        $testimonials=Testimonial::withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
+        return view('front.pages.single.patientReview.index',compact('videos','testimonials'));
+    }
 
     
     public function pages_show($slug){
@@ -167,52 +188,11 @@ class HomeController extends Controller
         return view('front.pages.medicalTourism.destinations.destination');
     }
     
-    public function services(){
-        return view('front.pages.services.services');
-    }
 
-    public function medicalCenters(){
-        return view('front.pages.services.medicalCenters.medicalCenters');
-    }
-    
-    public function medicalCenter(){
-        return view('front.pages.services.medicalCenters.medicalCenter');
-    }
-    
-    
-    
-
-
-    public function hostels(){
-        return view('front.pages.services.hostels.hostels');
-    }
-    
-    public function hostel(){
-        return view('front.pages.services.hostels.hostel');
-    }    
-    
-    
-    
-    
-    
-    
-    
-    public function blogs(){
-        return view('front.pages.blog.posts');
-    }
-    
-    public function blog(){
-        return view('front.pages.blog.post');
-    }
-    
     public function faq(){
         return view('front.pages.single.faq.index');
     }
-    
-    public function patientReview(){
-        return view('front.pages.single.patientReview.index');
-    }
-    
+     
     
     public function aboutUs(){
         return view('front.pages.single.aboutUs.index');

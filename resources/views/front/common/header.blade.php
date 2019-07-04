@@ -57,16 +57,16 @@
                             <a href="{{route('service')}}" id="menu-service" class="mdl-button mdl-js-button mdl-js-ripple-effect">Services <i class="fa fa-chevron-down"></i></a>
                             <ul class="menu-dropdown">
                                 <li>
-                                    <a href="{{route('service.medicalCenter.index')}}">Our Medical Centers</a>
+                                    <a href="{{route('service.hotel.index','medical-centers')}}">Our Medical Centers</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('service.hotel.index')}}">Our Hotels</a>
+                                    <a href="{{route('service.hotel.index','hotels')}}">Our Hotels</a>
                                 </li>
                                 <li>
                                     <a href="{{route('service.doctor.index')}}">Our Doctors</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('service.hostel.index')}}">Our Hostel & Apartments</a>
+                                    <a href="{{route('service.hotel.index','hostels')}}">Our Hostel & Apartments</a>
                                 </li>
                             </ul>
                         </li>

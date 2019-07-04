@@ -33,5 +33,8 @@ return [
     "message"=>"Message",
     "book_now"=>"Book Now",
     "special_services"=>"Special Services",
-    "popular_treatment"=>"Popular Treatments"
+    "popular_treatment"=>"Popular Treatments",
+    "hotels"=>"Hotels",
+    "medicals"=>"Medical Centers",
+    "hostels"=>"Hostels"
 ];
