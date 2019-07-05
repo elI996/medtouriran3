@@ -50,4 +50,9 @@ class Package extends Model
     public function categories(){
         return $this->belongsToMany('App\Models\Category','package_category');
     }
+
+    public function reviews()
+    {
+        return $this->morphMany('App\Models\Review', 'reviewable');
+    }
 }

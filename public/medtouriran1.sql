@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2019 at 11:56 PM
+-- Generation Time: Jul 05, 2019 at 08:36 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -122,17 +122,20 @@ CREATE TABLE `cities` (
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `excerpt` mediumtext COLLATE utf8mb4_unicode_ci,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `cities`
 --
 
-INSERT INTO `cities` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Tehran', NULL, '2019-06-30 07:12:17', '2019-06-30 07:12:17'),
-(2, 'Shiraz', NULL, '2019-06-30 07:13:37', '2019-06-30 07:13:37'),
-(3, 'Mashhad', NULL, '2019-06-30 07:20:57', '2019-06-30 07:20:57');
+INSERT INTO `cities` (`id`, `title`, `description`, `created_at`, `updated_at`, `image`, `excerpt`, `slug`) VALUES
+(1, 'Tehran', NULL, '2019-06-30 07:12:17', '2019-06-30 07:12:17', NULL, NULL, NULL),
+(2, 'Shiraz', NULL, '2019-06-30 07:13:37', '2019-06-30 07:13:37', NULL, NULL, NULL),
+(3, 'Mashhad', '<div class=\"mceTmpl\">\r\n<p class=\"paragraph-medium paragraph-black\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem molestias cumque, dolore assumenda recusandae nobis at harum suscipit temporibus aliquid laudantium, minima aspernatur inventore omnis laboriosam labore, numquam iste earum.</p>\r\n<div id=\"procedure-page--images\" class=\"row\">\r\n<div class=\"col-md-4\">\r\n<div class=\"theme-img procedure-page--images\"><img src=\"/uploads/service-2.jpg\" alt=\"\" /></div>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<div class=\"theme-img theme-img-scale procedure-page--images\"><img src=\"/uploads/service-1.jpg\" alt=\"\" /></div>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<div class=\"theme-img theme-img-scalerotate procedure-page--images\"><img src=\"/uploads/service-5.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<p class=\"paragraph-medium paragraph-black\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut tempora quibusdam dolorem, excepturi hic vel corrupti quos. Tempora illum voluptate perspiciatis, a. Dignissimos tenetur architecto, quae consequatur sit, provident esse totam quo soluta laboriosam beatae commodi dolor, minima omnis accusamus iste, suscipit libero. Beatae soluta excepturi natus quos alias, possimus repellendus pariatur quidem quo quas minus fugit labore delectus iste repudiandae, accusantium. Facilis cumque neque quae architecto? Accusamus, ipsa accusantium deleniti ducimus unde error at doloribus temporibus voluptate et, rem minus quia sequi, blanditiis sed. Id cupiditate, doloribus quibusdam nostrum, ratione nulla, quo alias inventore minima ducimus illo! Nesciunt commodi reprehenderit suscipit corporis quibusdam sed asperiores, culpa atque a illum exercitationem debitis voluptatem dolor, consequuntur eaque iusto unde hic repudiandae esse mollitia. Mollitia nulla ab perspiciatis illum, nobis cum a iusto vero, saepe dolore necessitatibus accusamus ut odio asperiores facere, maiores quis sapiente aut! Ducimus ea aperiam ut sit, soluta quasi est obcaecati odio, omnis dolorum possimus fuga dolorem voluptates, cumque provident. Quidem omnis facere dolore nisi explicabo cum at, cumque doloremque, recusandae quae minima, odit corporis ut amet, vel vitae. Ipsam minima labore ab eveniet vero nam aperiam accusamus doloremque fugiat iusto accusantium perspiciatis cum pariatur laboriosam asperiores hic velit unde, quas recusandae voluptas optio reprehenderit, vitae porro? Dolor, vero modi illum sapiente enim nihil aspernatur quaerat, non hic, atque eum assumenda corrupti earum beatae odit exercitationem. Aperiam eos repellendus corporis nihil aliquid nemo est mollitia, totam nesciunt veritatis magni doloribus! Esse nulla ea sed id provident quisquam illo, velit labore molestias eaque odit laborum veritatis cupiditate harum similique corrupti cum, alias tenetur, eum. Qui deserunt voluptate dolor similique debitis quae vero blanditiis, in voluptatem soluta ea quia! Ea aliquid harum odit cumque dolorum reprehenderit veritatis aspernatur eum ex distinctio. Corporis pariatur ullam, perferendis vero amet similique temporibus voluptate sed. Neque reprehenderit optio, quos laboriosam nulla adipisci eos, beatae in expedita commodi odio fuga sequi quod error et quaerat sed dignissimos. Sed ullam, facere. Aspernatur quam quod error ex odio, animi, officiis repudiandae totam voluptates porro vero facilis voluptas quas, soluta laudantium vel nobis. Molestiae, eum deserunt sapiente laborum corporis atque facilis quibusdam quam ea et explicabo doloribus provident maiores modi odit quaerat non perspiciatis quis laudantium necessitatibus itaque unde, consequuntur earum? Voluptatum dignissimos, maxime accusamus, vel magnam voluptatem saepe consequuntur ea. Beatae consectetur error perspiciatis magnam et ducimus fugiat eveniet ad repudiandae culpa, quas pariatur sed tempore doloremque enim reprehenderit accusantium corporis. Nisi atque quae labore quam laborum autem temporibus voluptatum animi, rem harum. Id, porro! Eum vitae voluptate, aliquid ea omnis iusto libero minus. Quam illo quaerat ipsum, itaque similique porro nesciunt consequatur, hic, voluptas quae fugit optio illum molestiae nostrum! Amet numquam in, expedita repellat fugiat sit. Saepe dolor doloribus inventore tempore minus, cum fuga officiis. Odio deleniti delectus dolorem labore repudiandae ab rem quia ratione dolore harum dicta qui blanditiis itaque assumenda quidem et voluptatibus nemo, rerum optio voluptatem? Debitis sequi similique odit quasi aspernatur tenetur hic quae doloremque sed sunt obcaecati, ipsam quod omnis.</p>\r\n</div>', '2019-06-30 07:20:00', '2019-07-05 08:04:14', 'cities\\July2019\\kLC4ZQIaSfNC2vdZztR4.jpg', 'dolorum reprehenderit veritatis aspernatur eum ex distinctio. Corporis pariatur ullam, perferendis vero amet similique temporibus voluptate sed. Neque reprehenderit optio, quos laboriosam nulla adipisci eos, beatae in expedita commodi od', 'mashhad2');
 
 -- --------------------------------------------------------
 
@@ -251,7 +254,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (89, 13, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 1, '{}', 8),
 (90, 13, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
 (91, 13, 'request_belongsto_category_relationship', 'relationship', 'categories', 0, 1, 1, 1, 1, 1, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Category\",\"table\":\"categories\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}', 10),
-(92, 13, 'message', 'text', 'Message', 0, 0, 1, 1, 1, 1, '{}', 10),
+(92, 13, 'message', 'text', 'Message', 0, 0, 1, 1, 1, 1, '{}', 15),
 (93, 4, 'icon', 'text', 'Icon', 0, 0, 1, 1, 1, 1, '{}', 10),
 (94, 4, 'excerpt', 'text_area', 'Excerpt', 0, 0, 1, 1, 1, 1, '{}', 11),
 (95, 12, 'icon', 'text', 'Icon', 0, 0, 1, 1, 1, 1, '{}', 2),
@@ -275,11 +278,11 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (113, 17, 'email', 'text', 'Email', 0, 0, 1, 1, 1, 1, '{}', 10),
 (114, 17, 'website', 'text', 'Website', 0, 0, 1, 1, 1, 1, '{}', 11),
 (115, 17, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 16),
-(116, 17, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 19),
+(116, 17, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 21),
 (117, 17, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, '{\"resize\":{\"width\":\"800\",\"height\":\"null\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 14),
 (118, 17, 'images', 'multiple_images', 'Images', 0, 0, 1, 1, 1, 1, '{\"resize\":{\"width\":\"800\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 15),
 (120, 17, 'doctor_belongstomany_category_relationship', 'relationship', 'Specialties', 0, 1, 1, 1, 1, 1, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Category\",\"table\":\"categories\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"doctor_category\",\"pivot\":\"1\",\"taggable\":\"on\"}', 12),
-(121, 17, 'order', 'number', 'Order', 0, 0, 0, 0, 0, 0, '{}', 18),
+(121, 17, 'order', 'number', 'Order', 0, 0, 0, 0, 0, 0, '{}', 20),
 (122, 17, 'slug', 'text', 'Slug', 0, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"name\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:doctors,slug\"}}', 3),
 (123, 18, 'id', 'text', 'Id', 1, 1, 0, 0, 0, 0, '{}', 1),
 (124, 18, 'title', 'text', 'Title', 0, 1, 1, 1, 1, 1, '{}', 2),
@@ -332,9 +335,9 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (172, 23, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
 (173, 24, 'id', 'text', 'Id', 1, 1, 0, 0, 0, 0, '{}', 1),
 (174, 24, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '{}', 2),
-(175, 24, 'description', 'text', 'Description', 0, 0, 1, 1, 1, 1, '{}', 3),
-(176, 24, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 4),
-(177, 24, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(175, 24, 'description', 'rich_text_box', 'Description', 0, 0, 1, 1, 1, 1, '{}', 5),
+(176, 24, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 7),
+(177, 24, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8),
 (178, 21, 'package_belongstomany_city_relationship', 'relationship', 'cities', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\City\",\"table\":\"cities\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"package_city\",\"pivot\":\"1\",\"taggable\":\"on\"}', 5),
 (179, 25, 'id', 'text', 'Id', 1, 1, 0, 0, 0, 0, '{}', 1),
 (180, 25, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '{}', 2),
@@ -374,7 +377,35 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (214, 29, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 1, 0, 1, '{}', 6),
 (215, 29, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
 (216, 29, 'title', 'text', 'Title', 0, 1, 1, 1, 1, 1, '{}', 3),
-(217, 26, 'type', 'select_dropdown', 'Type', 0, 1, 1, 1, 1, 1, '{\"default\":\"hotel\",\"options\":{\"hotels\":\"Hotel\",\"hostles\":\"Hostle\",\"medical-centers\":\"Medical Center\"}}', 4);
+(217, 26, 'type', 'select_dropdown', 'Type', 0, 1, 1, 1, 1, 1, '{\"default\":\"hotel\",\"options\":{\"hotels\":\"Hotel\",\"hostles\":\"Hostle\",\"medical-centers\":\"Medical Center\"}}', 4),
+(218, 13, 'request_belongsto_doctor_relationship', 'relationship', 'doctors', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Doctor\",\"table\":\"doctors\",\"type\":\"belongsTo\",\"column\":\"doctor_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}', 11),
+(219, 13, 'doctor_id', 'text', 'Doctor Id', 0, 1, 1, 1, 1, 1, '{}', 16),
+(220, 13, 'date', 'text', 'Date', 0, 0, 1, 1, 1, 1, '{}', 14),
+(221, 24, 'image', 'image', 'Image', 0, 0, 1, 1, 1, 1, '{\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 4),
+(222, 24, 'excerpt', 'text_area', 'Excerpt', 0, 0, 1, 1, 1, 1, '{}', 6),
+(223, 24, 'slug', 'text', 'Slug', 0, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:cities,slug\"}}', 3),
+(224, 30, 'id', 'text', 'Id', 1, 1, 0, 0, 0, 0, '{}', 1),
+(225, 30, 'title', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2),
+(226, 30, 'position', 'text', 'Position', 0, 1, 1, 1, 1, 1, '{}', 4),
+(227, 30, 'expert', 'text', 'Expert', 0, 1, 1, 1, 1, 1, '{}', 5),
+(228, 30, 'degree', 'text', 'Degree', 0, 1, 1, 1, 1, 1, '{}', 6),
+(229, 30, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 1, '{}', 7),
+(230, 30, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8),
+(231, 30, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 1, '{\"resize\":{\"width\":\"600\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 3),
+(232, 13, 'package_id', 'text', 'Package Id', 0, 1, 1, 1, 1, 1, '{}', 13),
+(233, 13, 'request_belongsto_package_relationship', 'relationship', 'packages', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Package\",\"table\":\"packages\",\"type\":\"belongsTo\",\"column\":\"package_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}', 12),
+(234, 32, 'id', 'text', 'Id', 1, 1, 0, 0, 0, 0, '{}', 1),
+(235, 32, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2),
+(236, 32, 'email', 'text', 'Email', 1, 0, 1, 1, 1, 1, '{}', 3),
+(237, 32, 'comment', 'text_area', 'Comment', 0, 1, 1, 1, 1, 1, '{}', 4),
+(238, 32, 'reviewable_id', 'number', 'Reviewable Id', 0, 1, 1, 1, 1, 1, '{}', 5),
+(239, 32, 'reviewable_type', 'text', 'Reviewable Type', 0, 1, 1, 1, 1, 1, '{}', 6),
+(240, 32, 'locale', 'text', 'Locale', 0, 1, 1, 1, 1, 1, '{}', 7),
+(241, 32, 'active', 'checkbox', 'Active', 0, 1, 1, 1, 1, 1, '{}', 8),
+(242, 32, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 9),
+(243, 32, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 10),
+(244, 17, 'degree', 'text', 'Degree', 0, 0, 1, 1, 1, 1, '{}', 18),
+(245, 17, 'experience', 'number', 'Years of Experience', 0, 1, 1, 1, 1, 1, '{}', 19);
 
 -- --------------------------------------------------------
 
@@ -414,20 +445,22 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (9, 'socials', 'socials', 'Social Network', 'Social Networks', 'voyager-world', 'App\\Models\\Social', NULL, NULL, NULL, 1, 0, '{\"order_column\":\"id\",\"order_display_column\":null}', '2019-01-04 08:38:41', '2019-01-04 08:40:14'),
 (10, 'benefits', 'benefits', 'Benefit', 'Benefits', 'voyager-receipt', 'App\\Models\\Benefit', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-01-04 12:42:39', '2019-01-04 12:42:39'),
 (12, 'banners', 'banners', 'Banner', 'Banners', 'voyager-photo', 'App\\Models\\Banner', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-01-10 10:00:49', '2019-02-02 12:23:46'),
-(13, 'requests', 'requests', 'Request', 'Requests', 'voyager-question', 'App\\Models\\Request', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-01-10 12:41:52', '2019-01-10 13:56:05'),
+(13, 'requests', 'requests', 'Request', 'Requests', 'voyager-question', 'App\\Models\\Request', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-01-10 12:41:52', '2019-07-05 11:08:41'),
 (15, 'partners', 'partners', 'Partner', 'Partners', NULL, 'App\\Models\\Partner', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-02-02 23:42:57', '2019-02-02 23:44:23'),
 (16, 'links', 'links', 'Link', 'Important Links', NULL, 'App\\Models\\Link', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-02-03 01:32:59', '2019-02-03 01:33:28'),
-(17, 'doctors', 'doctors', 'Doctor', 'Doctors', NULL, 'App\\Models\\Doctor', NULL, NULL, NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-02-08 19:01:07', '2019-07-03 10:06:29'),
+(17, 'doctors', 'doctors', 'Doctor', 'Doctors', NULL, 'App\\Models\\Doctor', NULL, NULL, NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-02-08 19:01:07', '2019-07-05 12:32:06'),
 (18, 'networks', 'networks', 'Doctor\'s Socials', 'Networks', NULL, 'App\\Models\\Network', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-02-08 19:30:50', '2019-02-08 20:11:33'),
 (20, 'testimonials', 'testimonials', 'Testimonial', 'Testimonials', NULL, 'App\\Models\\Testimonial', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-02-24 20:24:19', '2019-03-01 19:24:07'),
 (21, 'packages', 'packages', 'Package', 'Packages', NULL, 'App\\Models\\Package', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-02-24 21:19:53', '2019-07-01 15:55:35'),
 (22, 'package_items', 'package-items', 'Package Item', 'Package Items', 'voyager-list-add', 'App\\Models\\PackageItem', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-06-29 06:08:58', '2019-06-29 06:08:58'),
 (23, 'timelines', 'timelines', 'Package Timeline', 'Package Timelines', 'voyager-dashboard', 'App\\Models\\Timeline', NULL, NULL, NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"description\"}', '2019-06-30 02:33:20', '2019-06-30 02:42:16'),
-(24, 'cities', 'cities', 'City', 'Cities', 'voyager-tree', 'App\\Models\\City', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-06-30 04:12:02', '2019-06-30 04:12:02'),
+(24, 'cities', 'cities', 'City', 'Cities', 'voyager-tree', 'App\\Models\\City', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-06-30 04:12:02', '2019-07-05 08:05:41'),
 (25, 'package_prices', 'package-prices', 'Package Price', 'Package Prices', 'voyager-credit-card', 'App\\Models\\PackagePrice', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-06-30 09:40:52', '2019-06-30 09:40:52'),
 (26, 'hotels', 'hotels', 'Hotel', 'Hotels', 'voyager-shop', 'App\\Models\\Hotel', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-07-01 01:02:20', '2019-07-04 17:00:57'),
 (28, 'hotel_items', 'hotel-items', 'Hotel Item', 'Hotel Items', NULL, 'App\\Models\\HotelItem', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2019-07-01 01:31:04', '2019-07-01 01:31:04'),
-(29, 'video_reviews', 'video-reviews', 'Video Review', 'Video Reviews', 'voyager-youtube-play', 'App\\Models\\VideoReview', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-07-04 15:13:21', '2019-07-04 15:40:58');
+(29, 'video_reviews', 'video-reviews', 'Video Review', 'Video Reviews', 'voyager-youtube-play', 'App\\Models\\VideoReview', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-07-04 15:13:21', '2019-07-04 15:40:58'),
+(30, 'members', 'members', 'Member', 'Members', 'voyager-people', 'App\\Models\\Member', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-07-05 08:47:30', '2019-07-05 10:12:45'),
+(32, 'reviews', 'reviews', 'Review', 'Reviews', NULL, 'App\\Models\\Review', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-07-05 11:59:59', '2019-07-05 12:06:17');
 
 -- --------------------------------------------------------
 
@@ -452,23 +485,25 @@ CREATE TABLE `doctors` (
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `rate` int(11) DEFAULT '100',
   `education` text COLLATE utf8mb4_unicode_ci,
-  `skills` text COLLATE utf8mb4_unicode_ci
+  `skills` text COLLATE utf8mb4_unicode_ci,
+  `degree` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `experience` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`id`, `name`, `about`, `testimonal`, `address`, `phone`, `email`, `website`, `created_at`, `updated_at`, `avatar`, `images`, `order`, `slug`, `rate`, `education`, `skills`) VALUES
-(2, 'Dr. Abdolreza Jamilian', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;Dr. Jamilian&nbsp; is an Iranian orthodontist and a prestigious USPTO patent holder including: Method and system for treatment of maxillary deficiency using miniscrews.</span>&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Dental surgery degree (D.D.S.) from Shahid Beheshti University of medical sciences in 1991</span></span></li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Orthodontics degree&nbsp;</span></span><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">from Shahid Beheshti University of medical sciences in 1998</span></span></li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Fellowship of orthognathic surgery and craniofacial syndromes from Shahid Beheshti University of medical sciences in 2011</span></span></li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<p>Dr. Jamilian is an outstanding member of the Iranian and European Board of Orthodontics, and renowned for his awesome innovations in designing therapeutic modalities for class III malocclusion patients</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>&nbsp;World Federation of Orthodontists. (WFO)</li>\n<li>&nbsp;America Association of Orthodontists. (AAO)</li>\n<li>&nbsp;European Orthodontic Society. (EOS)</li>\n<li>&nbsp;Iranian Association of Orthodontists. (IOA)&nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '<p><iframe title=\"Medtouriran-Jamilian5\" src=\"https://www.youtube.com/embed/qkLgamwEKKk?wmode=opaque&amp;theme=dark\" width=\"570\" height=\"321\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', '', NULL, NULL, 'http://www.drghazipour.com/', '2019-02-11 11:07:00', '2019-05-03 03:33:58', 'doctors/May2019/imt7qILLtctF8JFZzGm1.jpg', '[\"doctors\\/April2019\\/UKatMXOD6JhafgvCUNMc.jpg\",\"doctors\\/April2019\\/wIBFq8J2AhyRAHEaUoDH.jpg\",\"doctors\\/April2019\\/RjD4J1G6gFioWZX0jwK9.jpg\"]', 1, 'dr-abdolreza-jamilian', 100, NULL, NULL),
-(3, 'Dr. Mohsen PourHaghighi', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;Dr. Mohsen PourHaghighi is a restorative dentistry.</span>&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Tehran University of Medical Sciences</span></span></li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\">Fellowship in Laser Dentistry from university of geneva</span></li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<p>Specialist board in the field of restorative and beauty dentistry</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>&nbsp;Iranian Association for Restorative and Beauty Dentistry</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '', 'Shiraz, Iran', NULL, NULL, NULL, '2019-02-14 06:55:00', '2019-05-03 03:33:42', 'doctors/May2019/yD4e6Q7AY20BOm1CgFO6.jpg', '[\"doctors\\/April2019\\/KogwbIE18iBI9wKOVI7w.jpg\",\"doctors\\/April2019\\/0IQUTWEAH2nzGt9NLQRs.jpg\",\"doctors\\/April2019\\/a6ePYUXfGrEnJDKGy51F.jpg\",\"doctors\\/April2019\\/1E7TkPgTXRzjgeLi2GJo.jpg\"]', 2, 'dr-mohsen-pourhaghighi', 100, NULL, NULL),
-(4, 'Dr. Bahram Badamchi', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">Dr. Bahram Badamchi is a specialist in ENT.</span>&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">He is one the first physicians in Iran to have a broad and complete experience in endoscopy and Nasal polyps.</span></span></li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">He has conducted more than 3000 rhinoplasty and nasal plastic surgeries.</span></span></li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">He is also active in participating in conferences and international congresses in Iran and Europe, and due to this, he is familiar with the latest methods of procedures in his field.</span></span>&nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<ul>\n<li><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">7 years in the Kohkiloyeh va Boir Ahmad state and deprived areas</span></span></li>\n<li><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Since 1386 in Tehran; Bahman Hospital, Ibn Sina hospital, 501 military hospital and in Behgar clinic</span></span></li>\n<li><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">3 years in Qiyasi charity hospital and Ziyaian hospital affiliated to Tehran university of medical sciences</span></span>&nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>RRS (Rhinology Research Society).&nbsp;&nbsp;</li>\n<li>Iranian society of Rhinology &nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '<p><iframe title=\"\" src=\"https://www.youtube.com/embed/883nSp_R_Xo?wmode=opaque&amp;theme=dark\" width=\"560\" height=\"315\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', '', NULL, NULL, NULL, '2019-02-14 10:00:00', '2019-05-13 02:22:42', 'doctors/April2019/Zg83myji12pCTSQmGiUt.jpg', '[\"doctors\\/May2019\\/IhGiNgKrNYool3lSpBF8.jpg\",\"doctors\\/May2019\\/kIRceDOxI66et4evs1RW.jpeg\",\"doctors\\/May2019\\/eQoaB8YNuZ9xZKT6uPNz.jpeg\"]', 4, 'dr-bahram-badamchi', 100, NULL, NULL),
-(6, 'Dr. Behzad Alizadeh', '', '', '', NULL, NULL, NULL, '2019-03-16 02:22:00', '2019-05-03 03:29:35', 'doctors/April2019/FyJUPCD1eJaC7haeNIBK.jpg', NULL, 5, 'dr-behzad-alizadeh', 100, NULL, NULL),
-(8, 'Dr. MirMohammad Sadeghi', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;Dr. MirMohammad Sadeghi is a surgeon and eye specialist. &nbsp;Dr.Sadeghi&rsquo;s specialty covers different types of cornea transplantation surgeries, ICL, Artisan lens surgery, cataract surgery (specially with phaco method), LASIK, LASEK and Femto LASIK.</span></p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">Plastic Surgery and facial cosmetic surgery (for 10 months), Iran University of Medical Sciences, Tehran, 2005</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<ul>\n<li>Plastic Surgery Fellowship, LASIK and Phaco</li>\n<li>XXIX Congress of the European Society of Cataract and Refractive Surgeons, Vienna, Austria, September 2011.</li>\n<li>XXVII Congress of the European Society of Cataract and Refractive Surgeons, Barcelona, Spain, September 2009.</li>\n<li>XXV Congress of the European Society of Cataract and Refractive Surgeons, Stockholm, Sweden, September 2007.</li>\n<li>XXIV Congress of the European Society of Cataract and Refractive Surgeons, London, UK, September 2006.</li>\n<li>XXIII Congress of the European Society of Cataract and Refractive Surgeons, Lisbon, Portugal, September 2005.</li>\n<li>NIDEK Refractive Surgery Symposium, Dubai, UAE, April 2005.</li>\n<li>14th Iranian Congress of Ophthalmology, Iranian Society of Ophthalmology, Tehran, Iran, December 2004.</li>\n<li>XXI Congress of the European Society of Cataract and Refractive Surgeons, Munich, Germany, September 2003.</li>\n<li>XIX Congress of the European Society of Cataract and Refractive Surgeons, Amsterdam, Netherlands, September 2001.</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>Member of the European Association for the Cataract and Refractive Surgeons Association (ESCRS), 2000 - so far</li>\n<li>Member of the American Academy of Ophthalmology (AAO), 2009 - present</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '', '', NULL, NULL, NULL, '2019-05-02 18:00:00', '2019-05-03 03:29:35', 'doctors/May2019/46EdsonDPPhWZFhw1YW2.jpg', '[\"doctors\\/May2019\\/lZdrQs7ax1dGvCkzwYNb.jpg\",\"doctors\\/May2019\\/ms2BOcQ3VhWzs6TfyuBu.jpg\"]', 7, 'dr-mirmohammad-sadeghi', 100, NULL, NULL),
-(9, 'Dr. Mohammad Eshaghi', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;Dr. Mohammad Eshaghi is specialist in plastic and reconstructive surgery, strabismus and pediatric eye.</span></p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">Fellowship (Specialist) Plastic Surgery (Recuperation) and Eye Deviation from Shahid Beheshti University&nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<ul>\n<li>Faculty member of Mazandaran University of Medical Sciences and Shahid Beheshti University of Medical Sciences.&nbsp;&nbsp;</li>\n<li>Publishing 7 internal and 5 external scientific papers</li>\n<li>Speech at national and international conferences</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>Member of Iranian Society of Ophthalmology&nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '', '', NULL, NULL, NULL, '2019-05-03 02:49:00', '2019-05-11 07:56:36', 'doctors/May2019/WUMM6loElAbfINbZeqy4.jpg', NULL, 8, 'dr-mohammad-eshaghi', 100, NULL, NULL),
-(10, 'Dr. Mahtab Marjani', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">Dr. Mahtab Marjani Gynecologist and women&rsquo;s health specialist was born in Tehran, 1972. She acquired her general practitioner&rsquo;s degree from Tehran university of medical sciences in the year 1997. She went on further to qualify as a specialist in her current field in 2002 from the same university. She is specialist in pregnancy, childbirth, and a woman\'s reproductive system.</span>&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">Tehran University of Medical Sciences&nbsp;</li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Completing complementary courses in Laparoscopy, Hysteroscopy, Colposcopy and Sonography.</span></span></li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>Member of scientific committee and editorial board of the Scientific association of women and midwifery of IRAN.</li>\n<li>Member of the Association of Mother and Embryo medicine</li>\n<li>Member of the Association of Cancers of women-IRAN</li>\n<li>Member of the Association of Laparoscopic surgeries of IRAN</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\"><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Treatment Practices</span></span></h2>\n<ul>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Infertility diagnosis and treatment&nbsp;</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Recurrent miscarriage</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Laparoscopy and Hysteroscopy</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Ovarian failure problems</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Female reproductive system</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Pre-marriage counseling&nbsp;</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">All women related surgeries</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Pre-pregnancy counseling, pain management during labor, Caesarian</span></span></li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '', '', NULL, NULL, NULL, '2019-05-03 03:27:00', '2019-07-03 09:57:05', 'doctors/May2019/WxkFw8InN5SGqQdmfCgC.jpg', '[\"doctors\\/May2019\\/EBrhQQ375eprBLrOC27J.jpg\",\"doctors\\/May2019\\/nu92yx58t80e6rugJq3I.jpg\"]', 3, 'dr-mahtab-marjani', 100, '{}', '{}'),
-(11, 'Dr. Elham Emamjome', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</span>Dr. Emamjome has female cosmetic surgery fellowship from the United States. Among her specialties is treatment of infertility, normal delivery, cesarean delivery, vaginal cosmetic surgery, and gynecological surgery.</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Iran University of Medical Sciences</span></span></li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<p>Dr. Emamjome has a women\'s specialized board from Iran University of Medical Sciences</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships&nbsp;</h2>\n<ul>\n<li>Member of Iranian Society of Surgeons</li>\n<li>Member of the American and European Women\'s Beauty Association</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '', '', NULL, NULL, NULL, '2019-05-03 04:40:00', '2019-07-03 09:06:31', 'doctors/May2019/BzRN8xD1AkilDgG3uMLj.jpg', '[\"doctors\\/May2019\\/9fC1bpYrEdgoJxsdD0j6.jpeg\"]', 1, 'dr-elham-emamjome', 100, '{}', '{}'),
-(12, 'Dr. Akbar Mehrafzan', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit minus, modi adipisci nesciunt, illum atque temporibus cupiditate blanditiis quo illo cumque doloribus laborum rem neque dolorum, ipsa officiis fugiat expedita.Perspiciatis facere magnam reiciendis modi ratione asperiores fugit minus dolores dignissimos cum.', 'ZgJ8-LdttpQ; ZgJ8-LdttpQ', '', NULL, NULL, NULL, '2019-05-12 09:11:00', '2019-07-03 10:10:57', 'doctors/May2019/QvJheO5iuYTWk052FZj8.jpg', '[\"doctors\\\\July2019\\\\Uul8JEx5o0migekNXUu3.jpg\",\"doctors\\\\July2019\\\\lOOYxp80Ygrc4HezuIWC.jpg\",\"doctors\\\\July2019\\\\AhFTocN5QdP1ScFjlfIe.jpg\"]', 1, 'Dr. Akbar Mehrafzan', 90, '{\n    \"1\": {\n        \"name\": \"Universty of world for Medicine\",\n        \"degree\": \"Bachelor of Medicine(BM)\",\n        \"date\": \"Dec 1991\"\n    },\n    \"2\": {\n        \"name\": \"Universty of world for Medicine1\",\n        \"degree\": \"Bachelor of Medicine(BM)1\",\n        \"date\": \"Dec 1991 1\"\n    }\n}', '{\n    \"1\": {\n        \"skill\": \"Brain Surgery\",\n        \"percent\": \"75\"\n    },\n    \"2\": {\n        \"skill\": \"Heart Surgery\",\n        \"percent\": \"65\"\n    },\n    \"3\": {\n        \"skill\": \"Trauma Surgery\",\n        \"percent\": \"85\"\n    },\n    \"4\": {\n        \"skill\": \"Central Surgery\",\n        \"percent\": \"89\"\n    },\n    \"5\": {\n        \"skill\": \"Weekly Consultancy\",\n        \"percent\": \"55\"\n    }\n}');
+INSERT INTO `doctors` (`id`, `name`, `about`, `testimonal`, `address`, `phone`, `email`, `website`, `created_at`, `updated_at`, `avatar`, `images`, `order`, `slug`, `rate`, `education`, `skills`, `degree`, `experience`) VALUES
+(2, 'Dr. Abdolreza Jamilian', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;Dr. Jamilian&nbsp; is an Iranian orthodontist and a prestigious USPTO patent holder including: Method and system for treatment of maxillary deficiency using miniscrews.</span>&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Dental surgery degree (D.D.S.) from Shahid Beheshti University of medical sciences in 1991</span></span></li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Orthodontics degree&nbsp;</span></span><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">from Shahid Beheshti University of medical sciences in 1998</span></span></li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Fellowship of orthognathic surgery and craniofacial syndromes from Shahid Beheshti University of medical sciences in 2011</span></span></li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<p>Dr. Jamilian is an outstanding member of the Iranian and European Board of Orthodontics, and renowned for his awesome innovations in designing therapeutic modalities for class III malocclusion patients</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>&nbsp;World Federation of Orthodontists. (WFO)</li>\n<li>&nbsp;America Association of Orthodontists. (AAO)</li>\n<li>&nbsp;European Orthodontic Society. (EOS)</li>\n<li>&nbsp;Iranian Association of Orthodontists. (IOA)&nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '<p><iframe title=\"Medtouriran-Jamilian5\" src=\"https://www.youtube.com/embed/qkLgamwEKKk?wmode=opaque&amp;theme=dark\" width=\"570\" height=\"321\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', '', NULL, NULL, 'http://www.drghazipour.com/', '2019-02-11 11:07:00', '2019-05-03 03:33:58', 'doctors/May2019/imt7qILLtctF8JFZzGm1.jpg', '[\"doctors\\/April2019\\/UKatMXOD6JhafgvCUNMc.jpg\",\"doctors\\/April2019\\/wIBFq8J2AhyRAHEaUoDH.jpg\",\"doctors\\/April2019\\/RjD4J1G6gFioWZX0jwK9.jpg\"]', 1, 'dr-abdolreza-jamilian', 100, NULL, NULL, NULL, NULL),
+(3, 'Dr. Mohsen PourHaghighi', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;Dr. Mohsen PourHaghighi is a restorative dentistry.</span>&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Tehran University of Medical Sciences</span></span></li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\">Fellowship in Laser Dentistry from university of geneva</span></li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<p>Specialist board in the field of restorative and beauty dentistry</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>&nbsp;Iranian Association for Restorative and Beauty Dentistry</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '', 'Shiraz, Iran', NULL, NULL, NULL, '2019-02-14 06:55:00', '2019-05-03 03:33:42', 'doctors/May2019/yD4e6Q7AY20BOm1CgFO6.jpg', '[\"doctors\\/April2019\\/KogwbIE18iBI9wKOVI7w.jpg\",\"doctors\\/April2019\\/0IQUTWEAH2nzGt9NLQRs.jpg\",\"doctors\\/April2019\\/a6ePYUXfGrEnJDKGy51F.jpg\",\"doctors\\/April2019\\/1E7TkPgTXRzjgeLi2GJo.jpg\"]', 2, 'dr-mohsen-pourhaghighi', 100, NULL, NULL, NULL, NULL),
+(4, 'Dr. Bahram Badamchi', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">Dr. Bahram Badamchi is a specialist in ENT.</span>&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">He is one the first physicians in Iran to have a broad and complete experience in endoscopy and Nasal polyps.</span></span></li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">He has conducted more than 3000 rhinoplasty and nasal plastic surgeries.</span></span></li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">He is also active in participating in conferences and international congresses in Iran and Europe, and due to this, he is familiar with the latest methods of procedures in his field.</span></span>&nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<ul>\n<li><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">7 years in the Kohkiloyeh va Boir Ahmad state and deprived areas</span></span></li>\n<li><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Since 1386 in Tehran; Bahman Hospital, Ibn Sina hospital, 501 military hospital and in Behgar clinic</span></span></li>\n<li><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">3 years in Qiyasi charity hospital and Ziyaian hospital affiliated to Tehran university of medical sciences</span></span>&nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>RRS (Rhinology Research Society).&nbsp;&nbsp;</li>\n<li>Iranian society of Rhinology &nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '<p><iframe title=\"\" src=\"https://www.youtube.com/embed/883nSp_R_Xo?wmode=opaque&amp;theme=dark\" width=\"560\" height=\"315\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', '', NULL, NULL, NULL, '2019-02-14 10:00:00', '2019-05-13 02:22:42', 'doctors/April2019/Zg83myji12pCTSQmGiUt.jpg', '[\"doctors\\/May2019\\/IhGiNgKrNYool3lSpBF8.jpg\",\"doctors\\/May2019\\/kIRceDOxI66et4evs1RW.jpeg\",\"doctors\\/May2019\\/eQoaB8YNuZ9xZKT6uPNz.jpeg\"]', 4, 'dr-bahram-badamchi', 100, NULL, NULL, NULL, NULL),
+(6, 'Dr. Behzad Alizadeh', '', '', '', NULL, NULL, NULL, '2019-03-16 02:22:00', '2019-05-03 03:29:35', 'doctors/April2019/FyJUPCD1eJaC7haeNIBK.jpg', NULL, 5, 'dr-behzad-alizadeh', 100, NULL, NULL, NULL, NULL),
+(8, 'Dr. MirMohammad Sadeghi', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;Dr. MirMohammad Sadeghi is a surgeon and eye specialist. &nbsp;Dr.Sadeghi&rsquo;s specialty covers different types of cornea transplantation surgeries, ICL, Artisan lens surgery, cataract surgery (specially with phaco method), LASIK, LASEK and Femto LASIK.</span></p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">Plastic Surgery and facial cosmetic surgery (for 10 months), Iran University of Medical Sciences, Tehran, 2005</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<ul>\n<li>Plastic Surgery Fellowship, LASIK and Phaco</li>\n<li>XXIX Congress of the European Society of Cataract and Refractive Surgeons, Vienna, Austria, September 2011.</li>\n<li>XXVII Congress of the European Society of Cataract and Refractive Surgeons, Barcelona, Spain, September 2009.</li>\n<li>XXV Congress of the European Society of Cataract and Refractive Surgeons, Stockholm, Sweden, September 2007.</li>\n<li>XXIV Congress of the European Society of Cataract and Refractive Surgeons, London, UK, September 2006.</li>\n<li>XXIII Congress of the European Society of Cataract and Refractive Surgeons, Lisbon, Portugal, September 2005.</li>\n<li>NIDEK Refractive Surgery Symposium, Dubai, UAE, April 2005.</li>\n<li>14th Iranian Congress of Ophthalmology, Iranian Society of Ophthalmology, Tehran, Iran, December 2004.</li>\n<li>XXI Congress of the European Society of Cataract and Refractive Surgeons, Munich, Germany, September 2003.</li>\n<li>XIX Congress of the European Society of Cataract and Refractive Surgeons, Amsterdam, Netherlands, September 2001.</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>Member of the European Association for the Cataract and Refractive Surgeons Association (ESCRS), 2000 - so far</li>\n<li>Member of the American Academy of Ophthalmology (AAO), 2009 - present</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '', '', NULL, NULL, NULL, '2019-05-02 18:00:00', '2019-05-03 03:29:35', 'doctors/May2019/46EdsonDPPhWZFhw1YW2.jpg', '[\"doctors\\/May2019\\/lZdrQs7ax1dGvCkzwYNb.jpg\",\"doctors\\/May2019\\/ms2BOcQ3VhWzs6TfyuBu.jpg\"]', 7, 'dr-mirmohammad-sadeghi', 100, NULL, NULL, NULL, NULL),
+(9, 'Dr. Mohammad Eshaghi', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;Dr. Mohammad Eshaghi is specialist in plastic and reconstructive surgery, strabismus and pediatric eye.</span></p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">Fellowship (Specialist) Plastic Surgery (Recuperation) and Eye Deviation from Shahid Beheshti University&nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<ul>\n<li>Faculty member of Mazandaran University of Medical Sciences and Shahid Beheshti University of Medical Sciences.&nbsp;&nbsp;</li>\n<li>Publishing 7 internal and 5 external scientific papers</li>\n<li>Speech at national and international conferences</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>Member of Iranian Society of Ophthalmology&nbsp;</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '', '', NULL, NULL, NULL, '2019-05-03 02:49:00', '2019-05-11 07:56:36', 'doctors/May2019/WUMM6loElAbfINbZeqy4.jpg', NULL, 8, 'dr-mohammad-eshaghi', 100, NULL, NULL, NULL, NULL),
+(10, 'Dr. Mahtab Marjani', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">Dr. Mahtab Marjani Gynecologist and women&rsquo;s health specialist was born in Tehran, 1972. She acquired her general practitioner&rsquo;s degree from Tehran university of medical sciences in the year 1997. She went on further to qualify as a specialist in her current field in 2002 from the same university. She is specialist in pregnancy, childbirth, and a woman\'s reproductive system.</span>&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">Tehran University of Medical Sciences&nbsp;</li>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Completing complementary courses in Laparoscopy, Hysteroscopy, Colposcopy and Sonography.</span></span></li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships</h2>\n<ul>\n<li>Member of scientific committee and editorial board of the Scientific association of women and midwifery of IRAN.</li>\n<li>Member of the Association of Mother and Embryo medicine</li>\n<li>Member of the Association of Cancers of women-IRAN</li>\n<li>Member of the Association of Laparoscopic surgeries of IRAN</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\"><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Treatment Practices</span></span></h2>\n<ul>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Infertility diagnosis and treatment&nbsp;</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Recurrent miscarriage</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Laparoscopy and Hysteroscopy</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Ovarian failure problems</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Female reproductive system</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Pre-marriage counseling&nbsp;</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">All women related surgeries</span></span></li>\n<li><span style=\"color: #333333; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 16px;\">Pre-pregnancy counseling, pain management during labor, Caesarian</span></span></li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '', '', NULL, NULL, NULL, '2019-05-03 03:27:00', '2019-07-03 09:57:05', 'doctors/May2019/WxkFw8InN5SGqQdmfCgC.jpg', '[\"doctors\\/May2019\\/EBrhQQ375eprBLrOC27J.jpg\",\"doctors\\/May2019\\/nu92yx58t80e6rugJq3I.jpg\"]', 3, 'dr-mahtab-marjani', 100, '{}', '{}', NULL, NULL),
+(11, 'Dr. Elham Emamjome', '<p style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Specialties</h2>\n<p><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\">&nbsp;</span>Dr. Emamjome has female cosmetic surgery fellowship from the United States. Among her specialties is treatment of infertility, normal delivery, cesarean delivery, vaginal cosmetic surgery, and gynecological surgery.</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Education and training</h2>\n<ul>\n<li style=\"box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; border: 0px; outline: none; color: #656464; font-family: \'Open Sans\', sans-serif; font-size: 13px;\"><span style=\"color: #656464; font-family: \'Open Sans\', sans-serif;\"><span style=\"font-size: 13px;\">Iran University of Medical Sciences</span></span></li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Experience and Board certification</h2>\n<p>Dr. Emamjome has a women\'s specialized board from Iran University of Medical Sciences</p>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Professional memberships&nbsp;</h2>\n<ul>\n<li>Member of Iranian Society of Surgeons</li>\n<li>Member of the American and European Women\'s Beauty Association</li>\n</ul>\n<h2 style=\"box-sizing: border-box; margin: 10px 0px 5px; padding: 0px; border: 0px; outline: none; font-family: \'Open Sans\', sans-serif; line-height: 1.1; color: #333333; font-size: 16px;\">Language spoken</h2>\n<ul>\n<li>English</li>\n</ul>\n<p>&nbsp;</p>', '', '', NULL, NULL, NULL, '2019-05-03 04:40:00', '2019-07-03 09:06:31', 'doctors/May2019/BzRN8xD1AkilDgG3uMLj.jpg', '[\"doctors\\/May2019\\/9fC1bpYrEdgoJxsdD0j6.jpeg\"]', 1, 'dr-elham-emamjome', 100, '{}', '{}', NULL, NULL),
+(12, 'Dr. Akbar Mehrafzan', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit minus, modi adipisci nesciunt, illum atque temporibus cupiditate blanditiis quo illo cumque doloribus laborum rem neque dolorum, ipsa officiis fugiat expedita.Perspiciatis facere magnam reiciendis modi ratione asperiores fugit minus dolores dignissimos cum.', 'ZgJ8-LdttpQ;\nZgJ8-LdttpQ', '', NULL, NULL, NULL, '2019-05-12 09:11:00', '2019-07-05 12:35:45', 'doctors/May2019/QvJheO5iuYTWk052FZj8.jpg', '[\"doctors\\\\July2019\\\\Uul8JEx5o0migekNXUu3.jpg\",\"doctors\\\\July2019\\\\lOOYxp80Ygrc4HezuIWC.jpg\",\"doctors\\\\July2019\\\\AhFTocN5QdP1ScFjlfIe.jpg\"]', 1, 'Dr. Akbar Mehrafzan', 90, '{\n    \"1\": {\n        \"name\": \"Universty of world for Medicine\",\n        \"degree\": \"Bachelor of Medicine(BM)\",\n        \"date\": \"Dec 1991\"\n    },\n    \"2\": {\n        \"name\": \"Universty of world for Medicine1\",\n        \"degree\": \"Bachelor of Medicine(BM)1\",\n        \"date\": \"Dec 1991 1\"\n    }\n}', '{\n    \"1\": {\n        \"skill\": \"Brain Surgery\",\n        \"percent\": \"75\"\n    },\n    \"2\": {\n        \"skill\": \"Heart Surgery\",\n        \"percent\": \"65\"\n    },\n    \"3\": {\n        \"skill\": \"Trauma Surgery\",\n        \"percent\": \"85\"\n    },\n    \"4\": {\n        \"skill\": \"Central Surgery\",\n        \"percent\": \"89\"\n    },\n    \"5\": {\n        \"skill\": \"Weekly Consultancy\",\n        \"percent\": \"55\"\n    }\n}', 'MBBS, MD', 10);
 
 -- --------------------------------------------------------
 
@@ -611,6 +646,30 @@ INSERT INTO `links` (`id`, `title`, `link`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `members`
+--
+
+CREATE TABLE `members` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `position` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `expert` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `degree` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`id`, `title`, `position`, `expert`, `degree`, `created_at`, `updated_at`, `image`) VALUES
+(1, 'Daniel Barnes', 'CEO & Founder', 'Orthologist', 'MBBS, MD', '2019-07-05 10:13:44', '2019-07-05 10:13:44', 'members\\July2019\\ww9eObfbLXv7O5OkvY9d.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `menus`
 --
 
@@ -714,7 +773,9 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (61, 1, 'Hotels', '', '_self', 'voyager-shop', NULL, 23, 7, '2019-07-01 01:02:22', '2019-07-04 14:07:15', 'voyager.hotels.index', NULL),
 (62, 1, 'Hotel Items', '', '_self', NULL, NULL, 23, 8, '2019-07-01 01:31:05', '2019-07-04 14:08:10', 'voyager.hotel-items.index', NULL),
 (63, 1, 'Packages', '', '_self', 'voyager-backpack', '#000000', NULL, 4, '2019-07-04 14:04:30', '2019-07-04 14:05:57', NULL, ''),
-(64, 1, 'Video Reviews', '', '_self', 'voyager-youtube-play', NULL, NULL, 8, '2019-07-04 15:13:21', '2019-07-04 15:13:21', 'voyager.video-reviews.index', NULL);
+(64, 1, 'Video Reviews', '', '_self', 'voyager-youtube-play', NULL, NULL, 8, '2019-07-04 15:13:21', '2019-07-04 15:13:21', 'voyager.video-reviews.index', NULL),
+(65, 1, 'Members', '', '_self', NULL, NULL, NULL, 9, '2019-07-05 08:47:31', '2019-07-05 08:47:31', 'voyager.members.index', NULL),
+(66, 1, 'Reviews', '', '_self', NULL, NULL, NULL, 10, '2019-07-05 12:00:01', '2019-07-05 12:00:01', 'voyager.reviews.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -820,7 +881,7 @@ INSERT INTO `packages` (`id`, `title`, `before_price`, `after_price`, `descripti
 (1, 'Hair transplant', 'From', '', '<p>test</p>', '<p>test</p>', 700, 'Package In Tehran', NULL, '2019-02-24 21:24:00', '2019-05-14 16:32:46', 'زراعة- الشعر', 'Visa;\nTransfer within Tehran;\nAccommodation;\nInterpreter;\nFollow-up;\nCity Sightseeing\n', 'packages/May2019/t6fNX1gELLVNTdTMpQES.jpg', NULL, NULL, NULL),
 (2, 'Rhinoplasty', 'From', '', '<p>rerger</p>', '<p>defwfw</p>', 1600, 'Package In Tehran', NULL, '2019-02-25 12:43:00', '2019-05-14 16:31:53', 'عملية- تجميل- الأنف', 'Visa;\nTransfer within Tehran;\nAccommodation;\nInterpreter;\nFollow-up;\nCity Sightseeing\n', 'packages/May2019/ffUt2DDxX886KmEX3LI0.jpg', NULL, NULL, NULL),
 (3, 'DENTAL IMPLANT', 'From', 'per tooth', '<div class=\"mceTmpl\">\n<p class=\"paragraph-medium paragraph-black\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quod unde architecto dolorum fugiat saepe qui, repellat, eius illo eos aliquid quis fuga optio non impedit nostrum pariatur culpa dignissimos.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem molestias cumque, dolore assumenda recusandae nobis at harum suscipit temporibus aliquid laudantium, minima aspernatur inventore omnis laboriosam labore, numquam iste earum.</p>\n<div class=\"row\">\n<div class=\"col-md-6 m-auto\">\n<div class=\"theme-img theme-img-scalerotate my-2 package-page--image\"><img src=\"/images/packages/1/rhinoplasty4.jpg\" alt=\"\" /></div>\n</div>\n</div>\n<p class=\"paragraph-medium paragraph-black\">Ullum doming tamquam eu nam, est quaeque constituam inciderint ut. Alii alienum eu mei, evertitur instructior deterruisset et eum. Mel cu causae eirmod scribentur, id habeo brute tempor vim. Duo ignota denique ei, eros perpetua an mei. Bonorum debitis eu quo.</p>\n</div>', '', 300, 'Package In Tehran', '[\"packages\\\\June2019\\\\bAAHka3csc0Tr5hX6A6U.jpg\",\"packages\\\\June2019\\\\cUj2lpQDzZoelBtsfxhL.jpg\",\"packages\\\\June2019\\\\zwOdcza3RnlGqR1985ya.jpg\"]', '2019-02-25 13:03:00', '2019-06-30 10:53:46', 'dental-implant', 'Visa;\nTransfer within Tehran;\nAccommodation;\nInterpreter;\nFollow-up;\nCity Sightseeing\n\n', 'packages/June2019/B00AbTJl3cAVqWN6l134.jpg', NULL, 'ugj5q5kOqJE', 'LRaks4ZDqvw;\ntgbNymZ7vqY'),
-(4, 'Mashhad', 'From', '', '', '', 100, '', NULL, '2019-06-29 06:51:25', '2019-06-29 06:51:25', 'mashhad', '', 'packages/June2019/O9B8efdq7K43dD86UX2M.jpg', 1, NULL, NULL);
+(4, 'Mashhad', 'From', '', '', '', 100, '', NULL, '2019-06-29 06:51:00', '2019-07-05 10:52:08', 'mashhad', '', 'packages/June2019/O9B8efdq7K43dD86UX2M.jpg', 3, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -841,8 +902,7 @@ CREATE TABLE `package_category` (
 --
 
 INSERT INTO `package_category` (`id`, `package_id`, `category_id`, `created_at`, `updated_at`) VALUES
-(1, 3, 1, NULL, NULL),
-(2, 3, 2, NULL, NULL);
+(3, 3, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1204,7 +1264,17 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (123, 'read_video_reviews', 'video_reviews', '2019-07-04 15:13:21', '2019-07-04 15:13:21'),
 (124, 'edit_video_reviews', 'video_reviews', '2019-07-04 15:13:21', '2019-07-04 15:13:21'),
 (125, 'add_video_reviews', 'video_reviews', '2019-07-04 15:13:21', '2019-07-04 15:13:21'),
-(126, 'delete_video_reviews', 'video_reviews', '2019-07-04 15:13:21', '2019-07-04 15:13:21');
+(126, 'delete_video_reviews', 'video_reviews', '2019-07-04 15:13:21', '2019-07-04 15:13:21'),
+(127, 'browse_members', 'members', '2019-07-05 08:47:30', '2019-07-05 08:47:30'),
+(128, 'read_members', 'members', '2019-07-05 08:47:30', '2019-07-05 08:47:30'),
+(129, 'edit_members', 'members', '2019-07-05 08:47:30', '2019-07-05 08:47:30'),
+(130, 'add_members', 'members', '2019-07-05 08:47:30', '2019-07-05 08:47:30'),
+(131, 'delete_members', 'members', '2019-07-05 08:47:30', '2019-07-05 08:47:30'),
+(132, 'browse_reviews', 'reviews', '2019-07-05 12:00:00', '2019-07-05 12:00:00'),
+(133, 'read_reviews', 'reviews', '2019-07-05 12:00:00', '2019-07-05 12:00:00'),
+(134, 'edit_reviews', 'reviews', '2019-07-05 12:00:00', '2019-07-05 12:00:00'),
+(135, 'add_reviews', 'reviews', '2019-07-05 12:00:00', '2019-07-05 12:00:00'),
+(136, 'delete_reviews', 'reviews', '2019-07-05 12:00:00', '2019-07-05 12:00:00');
 
 -- --------------------------------------------------------
 
@@ -1423,7 +1493,17 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (123, 1),
 (124, 1),
 (125, 1),
-(126, 1);
+(126, 1),
+(127, 1),
+(128, 1),
+(129, 1),
+(130, 1),
+(131, 1),
+(132, 1),
+(133, 1),
+(134, 1),
+(135, 1),
+(136, 1);
 
 -- --------------------------------------------------------
 
@@ -1474,19 +1554,58 @@ CREATE TABLE `requests` (
   `category_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `message` text COLLATE utf8mb4_unicode_ci
+  `message` text COLLATE utf8mb4_unicode_ci,
+  `doctor_id` int(10) UNSIGNED DEFAULT NULL,
+  `date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `package_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `first_name`, `last_name`, `country_code`, `phone`, `email`, `category_id`, `created_at`, `updated_at`, `message`) VALUES
-(5, 'Zaman', 'Drat', '0092', '03495576218', 'asifjanan4321@gmail.com', 8, '2019-05-02 03:22:47', '2019-05-02 03:22:47', 'I want to know the total cost of ivf and iui and plz tell me the about sperm donation'),
-(6, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-06-29 13:28:07', '2019-06-29 13:28:07', 'test'),
-(7, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-06-29 13:33:13', '2019-06-29 13:33:13', 'tes24323'),
-(8, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-06-30 01:14:14', '2019-06-30 01:14:14', 'test2'),
-(9, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-06-30 01:54:58', '2019-06-30 01:54:58', 'tes2');
+INSERT INTO `requests` (`id`, `first_name`, `last_name`, `country_code`, `phone`, `email`, `category_id`, `created_at`, `updated_at`, `message`, `doctor_id`, `date`, `package_id`) VALUES
+(5, 'Zaman', 'Drat', '0092', '03495576218', 'asifjanan4321@gmail.com', 8, '2019-05-02 03:22:47', '2019-05-02 03:22:47', 'I want to know the total cost of ivf and iui and plz tell me the about sperm donation', NULL, NULL, NULL),
+(6, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-06-29 13:28:07', '2019-06-29 13:28:07', 'test', NULL, NULL, NULL),
+(7, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-06-29 13:33:13', '2019-06-29 13:33:13', 'tes24323', NULL, NULL, NULL),
+(8, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-06-30 01:14:14', '2019-06-30 01:14:14', 'test2', NULL, NULL, NULL),
+(9, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-06-30 01:54:58', '2019-06-30 01:54:58', 'tes2', NULL, NULL, NULL),
+(10, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-07-05 02:17:30', '2019-07-05 02:17:30', 'tswet', NULL, NULL, NULL),
+(11, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-07-05 02:26:09', '2019-07-05 02:26:09', 'tests', NULL, NULL, NULL),
+(12, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-07-05 02:28:20', '2019-07-05 02:28:20', 'czcx', NULL, NULL, NULL),
+(13, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-07-05 02:32:02', '2019-07-05 02:32:02', NULL, NULL, NULL, NULL),
+(14, 'Masoud', NULL, NULL, '9144062667', 'mrhn2005@gmail.com', 4, '2019-07-05 07:29:23', '2019-07-05 07:29:23', NULL, 11, '2020-01-01', NULL),
+(15, 'Masoud', NULL, NULL, '9144062667', 'mrhn2005@gmail.com', 4, '2019-07-05 07:29:55', '2019-07-05 07:29:55', NULL, 9, '2020-02-01', NULL),
+(16, 'Masoud', NULL, NULL, '9144062667', 'mrhn2005@gmail.com', 4, '2019-07-05 07:37:13', '2019-07-05 07:37:13', NULL, 6, NULL, NULL),
+(17, 'Masoud', NULL, 'Iran', '9144062667', 'mrhn2005@gmail.com', NULL, '2019-07-05 11:08:54', '2019-07-05 11:08:54', NULL, NULL, NULL, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` mediumtext COLLATE utf8mb4_unicode_ci,
+  `reviewable_id` int(11) DEFAULT NULL,
+  `reviewable_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `locale` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `active` tinyint(4) DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `name`, `email`, `comment`, `reviewable_id`, `reviewable_type`, `locale`, `active`, `created_at`, `updated_at`) VALUES
+(1, 'Masoud Reyhanian', 'mrhn2005@gmail.com', 'test2', 3, 'App\\Models\\Package', 'en', 0, '2019-07-05 12:06:26', '2019-07-05 12:06:26'),
+(2, 'Masoud Reyhanian', 'mrhn2005@gmail.com', 'tes fdf fdsf df', 7, 'App\\Models\\Post', 'en', 0, '2019-07-05 12:25:52', '2019-07-05 12:25:52'),
+(3, 'Masoud Reyhanian', 'mrhn2005@gmail.com', 'df fdsf fsd dsf', 1, 'App\\Models\\Hotel', 'en', 0, '2019-07-05 13:19:10', '2019-07-05 13:19:10');
 
 -- --------------------------------------------------------
 
@@ -2004,7 +2123,14 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (409, 'doctors', 'education', 10, 'ar', '{}', '2019-07-03 09:57:05', '2019-07-03 09:57:05'),
 (410, 'doctors', 'skills', 10, 'ar', '{}', '2019-07-03 09:57:05', '2019-07-03 09:57:05'),
 (411, 'data_types', 'display_name_singular', 29, 'ar', 'Video Review', '2019-07-04 15:16:56', '2019-07-04 15:16:56'),
-(412, 'data_types', 'display_name_plural', 29, 'ar', 'Video Reviews', '2019-07-04 15:16:56', '2019-07-04 15:16:56');
+(412, 'data_types', 'display_name_plural', 29, 'ar', 'Video Reviews', '2019-07-04 15:16:56', '2019-07-04 15:16:56'),
+(413, 'data_types', 'display_name_singular', 24, 'ar', 'City', '2019-07-05 07:52:23', '2019-07-05 07:52:23'),
+(414, 'data_types', 'display_name_plural', 24, 'ar', 'Cities', '2019-07-05 07:52:23', '2019-07-05 07:52:23'),
+(415, 'cities', 'title', 3, 'ar', 'Mashhad', '2019-07-05 08:04:15', '2019-07-05 08:04:15'),
+(416, 'data_types', 'display_name_singular', 30, 'ar', 'Member', '2019-07-05 08:50:31', '2019-07-05 08:50:31'),
+(417, 'data_types', 'display_name_plural', 30, 'ar', 'Members', '2019-07-05 08:50:31', '2019-07-05 08:50:31'),
+(418, 'data_types', 'display_name_singular', 32, 'ar', 'Review', '2019-07-05 12:06:17', '2019-07-05 12:06:17'),
+(419, 'data_types', 'display_name_plural', 32, 'ar', 'Reviews', '2019-07-05 12:06:17', '2019-07-05 12:06:17');
 
 -- --------------------------------------------------------
 
@@ -2151,6 +2277,12 @@ ALTER TABLE `links`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `members`
+--
+ALTER TABLE `members`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `menus`
 --
 ALTER TABLE `menus`
@@ -2272,6 +2404,12 @@ ALTER TABLE `requests`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -2364,13 +2502,13 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
 
 --
 -- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -2409,6 +2547,12 @@ ALTER TABLE `links`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `members`
+--
+ALTER TABLE `members`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
@@ -2418,7 +2562,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -2442,7 +2586,7 @@ ALTER TABLE `packages`
 -- AUTO_INCREMENT for table `package_category`
 --
 ALTER TABLE `package_category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `package_city`
@@ -2496,7 +2640,7 @@ ALTER TABLE `partners`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -2508,7 +2652,13 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -2544,7 +2694,7 @@ ALTER TABLE `timelines`
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=413;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=420;
 
 --
 -- AUTO_INCREMENT for table `users`

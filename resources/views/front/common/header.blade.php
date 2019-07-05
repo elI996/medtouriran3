@@ -17,9 +17,9 @@
                                 <li>
                                     <a href="{{route('aboutMedical.destination.index')}}" id="menu-destinations">Destinations<i class="fa fa-chevron-rl float-rev" style="line-height: inherit;"></i></a>
                                     <ul class="menu-dropdown menu-dropdown-2">
-                                        <li><a href="{{route('aboutMedical.destination.show')}}" id="menu-destinationTehran">Tehran</a></li>
-                                        <li><a href="{{route('aboutMedical.destination.show')}}" id="menu-destinationMashhad">Mashhad</a></li>
-                                        <li><a href="{{route('aboutMedical.destination.show')}}" id="menu-destinationShiraz">Shiraz</a></li>
+                                        @foreach($cities as $city)
+                                    <li><a href="{{route('aboutMedical.destination.show',[$city,$city->slug])}}" id="menu-destinationTehran">{{$city->getTranslatedAttribute('title')}}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li>
@@ -34,22 +34,16 @@
                             <a href="{{route('procedure.index')}}" id="menu-procedures" class="mdl-button mdl-js-button mdl-js-ripple-effect">Procedures <i class="fa fa-chevron-down"></i></a>
                             <ul class="menu-megamenu">
                                 <li class="row">
+                                    @foreach($categories as $category)
                                     <div class="col-lg-6">
-                                        <div class="megamenu-ttl">Medical</div>
+                                        <div class="megamenu-ttl">{{$category->getTranslatedAttribute('title')}}</div>
                                         <ul>
-                                            <li><a href="" id="menu-PlasticSurgery">Plastic Surgery</a></li>
-                                            <li><a href="" id="menu-Rhinoplasty">Rhinoplasty</a></li>
-                                            <li><a href="" id="menu-HairTransplantation">Hair Transplantation</a></li>
+                                            @foreach($category->children as $child)
+                                            <li><a href="{{route('procedure.show',[$child,$child->slug])}}" id="menu-PlasticSurgery">{{$child->getTranslatedAttribute('title')}}</a></li>
+                                            @endforeach
                                         </ul>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="megamenu-ttl">Cosmetic</div>
-                                        <ul>
-                                            <li><a href="">Dental Health</a></li>
-                                            <li><a href="">Eye Care</a></li>
-                                            <li><a href="">Infertility Treatment</a></li>
-                                        </ul>
-                                    </div>
+                                    @endforeach
                                 </li>
                             </ul>
                         </li>
@@ -78,11 +72,11 @@
                         </li>
                         
                         <li>
-                            <a href="{{route('aboutUs')}}" class="mdl-button mdl-js-button mdl-js-ripple-effect">About Us <i class="fa fa-chevron-down"></i></a>
+                            <a href="{{route('single-page',['about-us'])}}" class="mdl-button mdl-js-button mdl-js-ripple-effect">About Us <i class="fa fa-chevron-down"></i></a>
                             <ul class="menu-dropdown">
                                 <!--<li><a href="#">Our Team</a></li>-->
-                                <li><a href="{{route('contact')}}">Contact Us</a></li>
-                                <li><a href="{{route('faq')}}">FAQ</a></li>
+                                <li><a href="href="{{route('single-page',['contact-us'])}}">Contact Us</a></li>
+                                <li><a href="href="{{route('single-page',['faq'])}}">FAQ</a></li>
                                 <!--&lt;!&ndash;<li><a href="#">Terms &#38; Conditions</a></li>&ndash;&gt;-->
                                 <!--&lt;!&ndash;<li><a href="#">Privacy Policy</a></li>&ndash;&gt;-->
                             </ul>

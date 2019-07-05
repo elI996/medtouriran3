@@ -14,7 +14,7 @@
     <div class="layer-stretch">
         <div class="page-ttl-container">
             <h1>{{$hotel->getTranslatedAttribute('title')}}</h1>
-            <p><a href="#">Home</a> &#8594; <a href="#">Hotels</a> &#8594; <span>hotel felan</span></p>
+            <p><a href="#">Home</a> &#8594; <a href="#">Hotels</a> &#8594; <span>{{$hotel->getTranslatedAttribute('title')}}</span></p>
         </div>
     </div>
 </div><!-- End Page Title Section -->
@@ -23,218 +23,52 @@
     <div class="layer-stretch">
         <div class="row layer-wrapper">
             <div class="col-lg-8 text-center">
-                <div class="theme-material-card">
-                    <div class="hotel-page--name">
-                        {{$hotel->getTranslatedAttribute('title')}}
-                    </div>
-                    <div class="hotel-page--location">
-                        <i class="fas fa-map-marker-alt"></i>Iran, {{$hotel->city->getTranslatedAttribute('title')}}
-                    </div>
-                    @include('front.pages.services.hotels.includes.rating-stars')
-                    <div class="theme-img theme-img-scalerotate"><img src="{{Voyager::image($hotel->image)}}" alt="{{$hotel->getTranslatedAttribute('title')}}"></div>
-                    <div class="service-post">
-                        {!! $hotel->getTranslatedAttribute('description') !!}
-                    </div>
-                </div>
-                <div class="theme-material-card">
-                    <div class="sub-ttl">Gallery</div>
-                        <div id="hotel-page--gallery-owl-carousel" class="owl-carousel owl-drag owl-theme theme-owl-dot">
-                            @if(!empty($hotel->images))
-                            <?php $images = json_decode($hotel->images); ?>
-                            @foreach($images as $image)
-                            <div class="owl-item">
-                                <div class="theme-block">
-                                    <div class="gallery-block theme-block-picture doctor-picture-2">
-                                        <a href="{{ Voyager::image($image)}}">
-                                            <img src="{{ Voyager::image($hotel->getThumbnail($image, 'medium'))}}" alt="image">
-                                            <div class="gallery-layer">
-                                                <div class="gallery-layer-dark">
-                                                    <p><i class="fa fa-search-plus"></i></p>
+                    <div class="theme-material-card">
+                            <div class="hotel-page--name">
+                                {{$hotel->getTranslatedAttribute('title')}}
+                            </div>
+                            <div class="hotel-page--location">
+                                <i class="fas fa-map-marker-alt"></i>Iran, {{$hotel->city->getTranslatedAttribute('title')}}
+                            </div>
+                            <div class="rating-stars">
+                            @include('front.pages.services.hotels.includes.rating-stars',["star"=>$hotel->star])
+                            </div>
+                            <div class="theme-img theme-img-scalerotate"><img src="{{Voyager::image($hotel->image)}}" alt="{{$hotel->getTranslatedAttribute('title')}}"></div>
+                            <div class="service-post">
+                                {!! $hotel->getTranslatedAttribute('description') !!}
+                            </div>
+                        </div>
+                        <div class="theme-material-card">
+                            <div class="sub-ttl">Gallery</div>
+                            <div id="hotel-page--gallery-owl-carousel" class="owl-carousel owl-drag owl-theme theme-owl-dot">
+                                @if(!empty($hotel->images))
+                                <?php $images = json_decode($hotel->images); ?>
+                                @foreach($images as $image)
+                                <div class="owl-item">
+                                    <div class="theme-block">
+                                        <div class="gallery-block theme-block-picture doctor-picture-2">
+                                            <a href="{{ Voyager::image($image)}}">
+                                                <img src="{{ Voyager::image($hotel->getThumbnail($image, 'medium'))}}" alt="image">
+                                                <div class="gallery-layer">
+                                                    <div class="gallery-layer-dark">
+                                                        <p><i class="fa fa-search-plus"></i></p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                            @endif
-                        </div>
-                    </div>
-                <div class="theme-material-card">
-                    <div class="sub-ttl">Reviews (9)</div>
-                    <ul class="comment-list">
-                        <li>
-                            <div class="row">
-                                <div class="col-2 hidden-xs-down pr-0 comment-img">
-                                    <div class="theme-img">
-                                        <img src="/uploads/comment-1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-10 comment-detail text-left">
-                                    <div class="comment-meta">
-                                        <span>Jorah Mormant</span>
-                                        <span>27 June 2017</span>
-                                    </div>
-                                    <div class="comment-post">
-                                        Laboris nisi ut aliquip ex ea Duis aute irure dolor in reprehenderit in voluptate velit .Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit .
-                                    </div>
-                                    <ul class="comment-action">
-                                        <li><a><i class="fa fa-thumbs-up"></i>Like</a></li>
-                                        <li><a><i class="fa fa-thumbs-down"></i>Dislike</a></li>
-                                        <li><a><i class="fa fa-reply"></i>Reply</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row">
-                                <div class="col-2 hidden-xs-down pr-0 comment-img">
-                                    <div class="theme-img">
-                                        <img src="/uploads/comment-2.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-10 comment-detail text-left">
-                                    <div class="comment-meta">
-                                        <span>Micheal Doe</span>
-                                        <span>27 June 2017</span>
-                                    </div>
-                                    <div class="comment-post">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ad odio, doloribus dicta. Nesciunt odit, sed optio repudiandae.
-                                    </div>
-                                    <ul class="comment-action">
-                                        <li><a><i class="fa fa-thumbs-up"></i>Like</a></li>
-                                        <li><a><i class="fa fa-thumbs-down"></i>Dislike</a></li>
-                                        <li><a><i class="fa fa-reply"></i>Reply</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row">
-                                <div class="col-2 hidden-xs-down pr-0 comment-img">
-                                    <div class="theme-img">
-                                        <img src="/uploads/comment-3.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-10 comment-detail text-left">
-                                    <div class="comment-meta">
-                                        <span>Gerry George</span>
-                                        <span>27 June 2017</span>
-                                    </div>
-                                    <div class="comment-post">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ad odio, doloribus dicta. Nesciunt odit, sed optio repudiandae.
-                                    </div>
-                                    <ul class="comment-action">
-                                        <li><a><i class="fa fa-thumbs-up"></i>Like</a></li>
-                                        <li><a><i class="fa fa-thumbs-down"></i>Dislike</a></li>
-                                        <li><a><i class="fa fa-reply"></i>Reply</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row">
-                                <div class="col-2 hidden-xs-down pr-0 comment-img">
-                                    <div class="theme-img">
-                                        <img src="/uploads/comment-4.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-10 comment-detail text-left">
-                                    <div class="comment-meta">
-                                        <span>Samuel Wikensy</span>
-                                        <span>27 June 2017</span>
-                                    </div>
-                                    <div class="comment-post">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ad odio, doloribus dicta. Nesciunt odit, sed optio repudiandae.
-                                    </div>
-                                    <ul class="comment-action">
-                                        <li><a><i class="fa fa-thumbs-up"></i>Like</a></li>
-                                        <li><a><i class="fa fa-thumbs-down"></i>Dislike</a></li>
-                                        <li><a><i class="fa fa-reply"></i>Reply</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row">
-                                <div class="col-2 hidden-xs-down pr-0 comment-img">
-                                    <div class="theme-img">
-                                        <img src="/uploads/comment-5.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-10 comment-detail text-left">
-                                    <div class="comment-meta">
-                                        <span>Meera Reed</span>
-                                        <span>27 June 2017</span>
-                                    </div>
-                                    <div class="comment-post">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ad odio, doloribus dicta. Nesciunt odit, sed optio repudiandae.
-                                    </div>
-                                    <ul class="comment-action">
-                                        <li><a><i class="fa fa-thumbs-up"></i>Like</a></li>
-                                        <li><a><i class="fa fa-thumbs-down"></i>Dislike</a></li>
-                                        <li><a><i class="fa fa-reply"></i>Reply</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <ul class="comment-list second-comment">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-2 hidden-xs-down pr-0 comment-img">
-                                            <div class="theme-img">
-                                                <img src="/uploads/comment-6.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-10 comment-detail text-left">
-                                            <div class="comment-meta">
-                                                <span>Anthony Collins</span>
-                                                <span>27 June 2017</span>
-                                            </div>
-                                            <div class="comment-post">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ad odio, doloribus dicta. Nesciunt odit, sed optio repudiandae.
-                                            </div>
-                                            <ul class="comment-action">
-                                                <li><a><i class="fa fa-thumbs-up"></i>Like</a></li>
-                                                <li><a><i class="fa fa-thumbs-down"></i>Dislike</a></li>
-                                                <li><a><i class="fa fa-reply"></i>Reply</a></li>
-                                            </ul>
+                                            </a>
                                         </div>
                                     </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="theme-material-card">
-                    <div class="sub-ttl layer-ttl-white">Write a Review</div>
-                    <div class="row comment-form">
-                        <div class="col-sm-6">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z, ]*" id="comment-name">
-                                <label class="mdl-textfield__label" for="comment-name">Name <em> *</em></label>
-                                <span class="mdl-textfield__error">Please Enter Valid Name!</span>
+                                </div>
+                                @endforeach
+                                @endif
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                <input class="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="comment-email">
-                                <label class="mdl-textfield__label" for="comment-email">Email <em> *</em></label>
-                                <span class="mdl-textfield__error">Please Enter Valid Email!</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="mdl-textfield mdl-js-textfield form-input">
-                                <textarea class="mdl-textfield__input" rows="4" id="comment-message" ></textarea>
-                                <label class="mdl-textfield__label" for="comment-message">Your Comment ...</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-submit">
-                                <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary">Submit Comment</button>
-                            </div>
-                        </div>  
-                    </div>
-                </div>
+                        @include('front.common.reviews',["reviews"=>$hotel->reviews])
+                        <form action="{{route('comment_store')}}" class="form-horizontal cform-2" method="post">
+                        @csrf
+                        <input type="hidden" value="{{get_class($hotel)}}" name="reviewable_type">
+                        <input type="hidden" value="{{$hotel->id}}" name="reviewable_id">
+                        @include('front.common.review-form')
+                        </form>
             </div>
             <div class="col-lg-4">
                 <div class="theme-material-card">
@@ -291,70 +125,18 @@
                 </div>
                 <div class="theme-material-card">
                     <div class="sub-ttl">Similar Hotels</div>
+                    @foreach($related_hotels as $related_hotel)
                     <a href="" class="row blog-recent">
                         <div class="col-4 blog-recent-img round">
-                            <img class="img-responsive img-thumbnail" src="/uploads/recent-1.jpg" alt="">
+                            <img class="img-responsive img-thumbnail" src="{{Voyager::image($related_hotel->thumbnail('small'))}}" alt="{{$related_hotel->getTranslatedAttribute('title')}}">
                         </div>
                         <div class="col-8 blog-recent-post">
-                            <h4>Esteghlal Hotel</h4>
-                            <p>Iran , Tehran</p>
-                            <span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </span>
+                            <h4>{{$related_hotel->getTranslatedAttribute('title')}}</h4>
+                            <p>Iran , {{$related_hotel->city->getTranslatedAttribute('title')}}</p>
+                            @include('front.pages.services.hotels.includes.rating-stars',["star"=>$related_hotel->star])
                         </div>
                     </a>
-                    <a href="" class="row blog-recent">
-                        <div class="col-4 blog-recent-img round">
-                            <img class="img-responsive img-thumbnail" src="/uploads/recent-1.jpg" alt="">
-                        </div>
-                        <div class="col-8 blog-recent-post">
-                            <h4>Esteghlal Hotel</h4>
-                            <p>Iran , Tehran</p>
-                            <span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </span>
-                        </div>
-                    </a>
-                    <a href="" class="row blog-recent">
-                        <div class="col-4 blog-recent-img round">
-                            <img class="img-responsive img-thumbnail" src="/uploads/recent-1.jpg" alt="">
-                        </div>
-                        <div class="col-8 blog-recent-post">
-                            <h4>Esteghlal Hotel</h4>
-                            <p>Iran , Tehran</p>
-                            <span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </span>
-                        </div>
-                    </a>
-                    <a href="" class="row blog-recent">
-                        <div class="col-4 blog-recent-img round">
-                            <img class="img-responsive img-thumbnail" src="/uploads/recent-1.jpg" alt="">
-                        </div>
-                        <div class="col-8 blog-recent-post">
-                            <h4>Esteghlal Hotel</h4>
-                            <p>Iran , Tehran</p>
-                            <span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </span>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
         </div>

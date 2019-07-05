@@ -116,22 +116,20 @@
                 </div>
                 <div class="layer-container">
                     <div id="package-page--packages-slider" class="owl-carousel owl-theme theme-owl-dot">
-                        <div class="package-page--packages package-page--packages-box" style="background-image: url(/images/packages/city/cityt.jpg)">
+                        @foreach($package->children as $child)
+                        <div class="package-page--packages package-page--packages-box" style="background-image: url({{Voyager::image($child->background)}})">
                             <div class="package-page--packages-title">
-                                <h3>Tehran</h3>
-                                <p>7 Days</p>
+                                <h3>{{$child->getTranslatedAttribute('title')}}</h3>
+                                <p>{{$child->getTranslatedAttribute('subtitle')}}</p>
                             </div>
                             <div class="package-page--packages-price">
-                                <p>from</p>
-                                <h3>800$</h3>
+                                <p>{{$package->getTranslatedAttribute('before_price')}}</p>
+                                <h3>{{$package->getTranslatedAttribute('price')}}$</h3>
                             </div>
                             <ul class="package-page--packages-list">
-                                <li>Accomodation</li>
-                                <li>Medicines</li>
-                                <li>interpreter</li>
-                                <li>Visa</li>
-                                <li>Transfer</li>
-                                <li>Sim card & internet</li>
+                                @foreach($package->items as $item)
+                                <li>{{$item->getTranslatedAttribute('title')}}</li>
+                                @endforeach
                             </ul>
                             <a>
                                 <button class="package-page--book-btn mdl-button mdl-js-button mdl-js-ripple-effect button button-primary mt-3 mb-1">Book
@@ -141,57 +139,7 @@
                                 </button>
                             </a>
                         </div>
-                        <div class="package-page--packages package-page--packages-box" style="background-image: url(/images/packages/city/citym1.jpg)">
-                            <div class="package-page--packages-title">
-                                <h3>Mashhad</h3>
-                                <p>7 Days</p>
-                            </div>
-                            <div class="package-page--packages-price">
-                                <p>from</p>
-                                <h3>800$</h3>
-                            </div>
-                            <ul class="package-page--packages-list">
-                                <li>Accomodation</li>
-                                <li>Medicines</li>
-                                <li>interpreter</li>
-                                <li>Visa</li>
-                                <li>Transfer</li>
-                                <li>Sim card & internet</li>
-                            </ul>
-                            <a class="package-page--book-btn">
-                                <button class="package-page--book-btn mdl-button mdl-js-button mdl-js-ripple-effect button button-primary mt-3 mb-1">Book
-                                    <span class="mdl-button__ripple-container">
-                                        <span class="mdl-ripple is-animating" style="width: 256.724px; height: 256.724px; transform: translate(-50%, -50%) translate(69px, 30px);"></span>
-                                    </span>
-                                </button>
-                            </a>
-                        </div>
-                        <div class="package-page--packages package-page--packages-box" style="background-image: url(/images/packages/city/citys.jpg)">
-                            <div class="package-page--packages-title">
-                                <h3>Shiraz</h3>
-                                <p>7 Days</p>
-                            </div>
-                            <div class="package-page--packages-price">
-                                <p>from</p>
-                                <h3>800$</h3>
-                            </div>
-                            <ul class="package-page--packages-list">
-                                <li>Accomodation</li>
-                                <li>Medicines</li>
-                                <li>interpreter</li>
-                                <li>Visa</li>
-                                <li>Transfer</li>
-                                <li>Sim card & internet</li>
-                            </ul>
-                            <!--<a class="">-->
-                                <button class="package-page--book-btn mdl-button mdl-js-button mdl-js-ripple-effect button button-primary mt-3 mb-1">Book
-                                    <span class="mdl-button__ripple-container">
-                                        <span class="mdl-ripple is-animating" style="width: 256.724px; height: 256.724px; transform: translate(-50%, -50%) translate(69px, 30px);"></span>
-                                    </span>
-                                </button>
-                            <!--</a>-->
-                        </div>
-                        
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -226,93 +174,22 @@
                             @endif
                         </div>
                     </div>                    
-                    <div class="theme-material-card" id="package-page--reviews">
-                        <div class="sub-ttl">Reviews (2)</div>
-                        <ul class="comment-list">
-                            <li>
-                                <div class="row">
-                                    <div class="col-2 hidden-xs-down pr-0 comment-img">
-                                        <div class="theme-img">
-                                            <img src="/uploads/comment-1.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-10 comment-detail text-left">
-                                        <div class="comment-meta">
-                                            <span>Jorah Mormant</span>
-                                            <span>27 June 2017</span>
-                                        </div>
-                                        <div class="comment-post">
-                                            Laboris nisi ut aliquip ex ea Duis aute irure dolor in reprehenderit in voluptate velit .Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit .
-                                        </div>
-                                        <ul class="comment-action">
-                                            <li><a><i class="fa fa-thumbs-up"></i>Like</a></li>
-                                            <li><a><i class="fa fa-thumbs-down"></i>Dislike</a></li>
-                                            <li><a><i class="fa fa-reply"></i>Reply</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-2 hidden-xs-down pr-0 comment-img">
-                                        <div class="theme-img">
-                                            <img src="/uploads/comment-2.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-10 comment-detail text-left">
-                                        <div class="comment-meta">
-                                            <span>Micheal Doe</span>
-                                            <span>27 June 2017</span>
-                                        </div>
-                                        <div class="comment-post">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ad odio, doloribus dicta. Nesciunt odit, sed optio repudiandae.
-                                        </div>
-                                        <ul class="comment-action">
-                                            <li><a><i class="fa fa-thumbs-up"></i>Like</a></li>
-                                            <li><a><i class="fa fa-thumbs-down"></i>Dislike</a></li>
-                                            <li><a><i class="fa fa-reply"></i>Reply</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="theme-material-card">
-                        <div class="sub-ttl layer-ttl-white">Write a Review</div>
-                        <div class="row comment-form">
-                            <div class="col-sm-6">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                    <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z, ]*" id="package-page--comment-name">
-                                    <label class="mdl-textfield__label" for="comment-name">Name <em> *</em></label>
-                                    <span class="mdl-textfield__error">Please Enter Valid Name!</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                    <input class="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="package-page--comment-email">
-                                    <label class="mdl-textfield__label" for="comment-email">Email <em> *</em></label>
-                                    <span class="mdl-textfield__error">Please Enter Valid Email!</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="mdl-textfield mdl-js-textfield form-input">
-                                    <textarea class="mdl-textfield__input" rows="4" id="package-page--comment-message" ></textarea>
-                                    <label class="mdl-textfield__label" for="comment-message">Your Comment ...</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-submit">
-                                    <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary">Submit Comment</button>
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
+                    @include('front.common.reviews',["reviews"=>$package->reviews])
+                    <form action="{{route('comment_store')}}" class="form-horizontal cform-2" method="post">
+                    @csrf
+                    <input type="hidden" value="{{get_class($package)}}" name="reviewable_type">
+                    <input type="hidden" value="{{$package->id}}" name="reviewable_id">
+                    @include('front.common.review-form')
+                    </form>
                 </div>
             </div>    
         </div>    
     </div>
     
     <!-- PACKAGE BOOK MODAL -->
+    <form action="{{route('category.request')}}" class="form-horizontal cform-2" method="post">
+    @csrf
+    <input type="hidden" name="package_id" value={{$package->id}} >
     <div id="package-page--book-modal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -326,8 +203,8 @@
                         <div class="col-md-6">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input-icon">
                                 <i class="fa fa-user-o"></i>
-                                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z, ]*" id="package-page--book-name">
-                                <label class="mdl-textfield__label" for="package-page--book-name">Full Name</label>
+                                <input class="mdl-textfield__input" type="text" name="first_name" id="hm-booking-form--name" required>
+                                <label class="mdl-textfield__label" for="comment-name">Full Name <em> *</em></label>
                                 <span class="mdl-textfield__error">Please Enter Valid Name!</span>
                                 <span class="mdl-textfield__info">For Example: Elham Jafari</span>
                             </div>
@@ -335,25 +212,24 @@
                         <div class="col-md-6">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input-icon">
                                 <i class="fa fa-envelope-o"></i>
-                                <input class="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="package-page--book-email">
-                                <label class="mdl-textfield__label" for="package-page--book-email">Email</label>
+                                <input class="mdl-textfield__input" type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="hm-booking-form--email">
+                                <label class="mdl-textfield__label" for="comment-email">Email</label>
                                 <span class="mdl-textfield__error">Please Enter Valid Email!</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input-icon">
                                 <i class="fa fa-phone"></i>
-                                <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="package-page--book-mobile">
-                                <label class="mdl-textfield__label" for="package-page--book-mobile">Mobile Number <small>( WhatsApp is Prefferd )</small></label>
-                                <span class="mdl-textfield__error">Please Enter Valid Mobile Number! For Example: +989120000000</span>
-                                <!--<span class="mdl-textfield__info"></span>-->
+                                <input class="mdl-textfield__input" type="text" name="phone" pattern="[0-9+-]*" id="hm-booking-form--number" required>
+                                <label class="mdl-textfield__label" for="booking-form--number">Mobile Number <em> * </em><small>( WhatsApp is Prefferd )</small></label>
+                                <span class="mdl-textfield__error">Please Enter Valid Number! For Example: +989120000000</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input-icon">
                                 <i class="fa fa-map-marker-alt"></i>
-                                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z, ]*" id="package-page--book-location">
-                                <label class="mdl-textfield__label" for="package-page--book-location">Location</label>
+                                <input class="mdl-textfield__input" type="text" name="country_code" id="hm-booking-form--country" required>
+                                <label class="mdl-textfield__label" for="comment-name">Country <em> *</em></label>
                                 <span class="mdl-textfield__info">For Example: Iran</span>
                             
                             </div>
@@ -365,7 +241,9 @@
                 </div>
             </div>
         </div>
-    </div><!-- End Make an Appointment Modal -->
+    </div>
+    </form>
+    <!-- End Make an Appointment Modal -->
 @endsection
 
 @section('js')

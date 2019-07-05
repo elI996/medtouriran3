@@ -153,144 +153,46 @@
         <div class="theme-material-card">
             <div class="sub-ttl">Related Doctors</div>
             <div class="row">
+                @foreach($related_doctors as $related_doctor)
                 <div class="col-sm-6 col-md-4">
                     <div class="theme-block">
                         <div class="theme-block-picture doctor-picture-2">
-                            <img src="/uploads/doctor-1.jpg" alt="">
+                            <img src="{{Helper::placeholder(Voyager::image($related_doctor->thumbnail('medium'),'avatar'))}}" alt="{{$related_doctor->getTranslatedAttribute('name')}}">
                         </div>
                         <div class="doctor-name doctor-name-2">
-                            <h4><a>Daniel Barnes</a></h4>
+                            <h4><a>{{$related_doctor->getTranslatedAttribute('name')}}</a></h4>
                         </div>
                         <div class="theme-block-hidden">
                             <div class="doctor-name">
-                                <h4><a>Daniel Barnes</a></h4>
+                                <h4><a>{{$related_doctor->getTranslatedAttribute('name')}}</a></h4>
                             </div>
                             <div class="doctor-details">
                                 <div class="doctor-specility">
-                                    <p>Orthologist</p>
+                                    <p>
+                                        @include('front.common.items', ['items' => $related_doctor->categories])
+                                    </p>
                                 </div>
                                 <div class="doctor-details-extra">
                                     <!--<p><i class="fa fa-shield"></i>CEO &amp; Founder</p>-->
-                                    <p><i class="fa fa-mortar-board"></i>MBBS, MD</p>
+                                    <p><i class="fa fa-mortar-board"></i>{{$related_doctor->degree}}</p>
                                     <!--<p><i class="fa fa-trophy"></i>Awards: 8</p>-->
-                                    <p><i class="fa fa-star"></i>Experience: 17 year</p>
+                                    <p><i class="fa fa-star"></i>Experience: {{$related_doctor->experience}} year</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="theme-block">
-                        <div class="theme-block-picture doctor-picture-2">
-                            <img src="/uploads/doctor-2.jpg" alt="">
-                        </div>
-                        <div class="doctor-name doctor-name-2">
-                            <h4><a>Melissa Bates</a></h4>
-                        </div>
-                        <div class="theme-block-hidden">
-                            <div class="doctor-name">
-                                <h4><a>Melissa Bates</a></h4>
-                            </div>
-                            <div class="doctor-details">
-                                <div class="doctor-specility">
-                                    <p>Gynocologist</p>
-                                </div>
-                                <div class="doctor-details-extra">
-                                    <!--<p><i class="fa fa-shield"></i>C00s</p>-->
-                                    <p><i class="fa fa-mortar-board"></i>MBBS, MD</p>
-                                    <!--<p><i class="fa fa-trophy"></i>Awards: 5</p>-->
-                                    <p><i class="fa fa-star"></i>Experience: 9 year</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="theme-block">
-                        <div class="theme-block-picture doctor-picture-2">
-                            <img src="/uploads/doctor-3.jpg" alt="">
-                        </div>
-                        <div class="doctor-name doctor-name-2">
-                            <h4><a>Cheri Aria</a></h4>
-                        </div>
-                        <div class="theme-block-hidden">
-                            <div class="doctor-name">
-                                <h4><a>Cheri Aria</a></h4>
-                            </div>
-                            <div class="doctor-details">
-                                <div class="doctor-specility">
-                                    <p>Dermatologist</p>
-                                </div>
-                                <div class="doctor-details-extra">
-                                    <!--<p><i class="fa fa-shield"></i>Intern</p>-->
-                                    <p><i class="fa fa-mortar-board"></i>MBBS, MD</p>
-                                    <!--<p><i class="fa fa-trophy"></i>Awards: 12</p>-->
-                                    <p><i class="fa fa-star"></i>Experience: 6 year</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
 </div><!-- End Doctor List Section -->
 
 
-<div id="hm-booking-form" class="layer-stretch">
-    <div class="layer-wrapper">
-        <div class="row">
-            <div class="col-lg-12 text-center">    
-                <div class="theme-material-card">
-                    <div class="sub-ttl layer-ttl-white">Contact Us</div>
-                    <div class="row comment-form">
-                        <div class="col-sm-6">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z, ]*" id="hm-booking-form--name">
-                                <label class="mdl-textfield__label" for="comment-name">Full Name <em> *</em></label>
-                                <span class="mdl-textfield__error">Please Enter Valid Name!</span>
-                                <span class="mdl-textfield__info">For Example: Elham Jafari</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                <input class="mdl-textfield__input" type="text" pattern="[0-9+-]*" id="hm-booking-form--number">
-                                <label class="mdl-textfield__label" for="booking-form--number">Mobile Number <em> * </em><small>( WhatsApp is Prefferd )</small></label>
-                                <span class="mdl-textfield__error">Please Enter Valid Number! For Example: +989120000000</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z, ]*" id="hm-booking-form--country">
-                                <label class="mdl-textfield__label" for="comment-name">Country <em> *</em></label>
-                                <span class="mdl-textfield__info">For Example: Iran</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                <input class="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="hm-booking-form--email">
-                                <label class="mdl-textfield__label" for="comment-email">Email</label>
-                                <span class="mdl-textfield__error">Please Enter Valid Email!</span>
-                                <span class="mdl-textfield__info">For Example: example@gmail.com</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="mdl-textfield mdl-js-textfield form-input">
-                                <textarea class="mdl-textfield__input" rows="4" id="hm-booking-form--comment-message"></textarea>
-                                <label class="mdl-textfield__label" for="comment-message">How can we help you...?</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-submit">
-                                <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary" id="hm-booking-form--submit-btn">Submit</button>
-                            </div>
-                        </div>  
-                    </div>
-                </div>
-            </div>
-        </div>    
-    </div>    
-</div>
+<form action="{{route('category.request')}}" class="form-horizontal cform-2" method="post">
+        @csrf
+        @include('front.common.form')
+</form>
 @endsection
 @section('js')
 

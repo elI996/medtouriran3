@@ -32,4 +32,9 @@ class Hotel extends Model
                     "medical-centers"=>trans('home.medicalss'));
         return $type[$this->type];
     }
+
+    public function reviews()
+    {
+        return $this->morphMany('App\Models\Review', 'reviewable');
+    }
 }

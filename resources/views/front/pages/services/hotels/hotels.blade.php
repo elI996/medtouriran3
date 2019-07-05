@@ -36,7 +36,9 @@
             <div class="row">
                 @foreach ($hotels as $hotel)
                 <div class="col-md-6 col-lg-4 c-filter {{Helper::remove_space($city->title)}}">
-                        @include('front.pages.services.hotels.includes.rating-stars')
+                        <div class="rating-stars">
+                        @include('front.pages.services.hotels.includes.rating-stars',["star"=>$hotel->star])
+                        </div>
                         <div class="theme-block theme-block-hover">
                             <div class="theme-block-picture">
                                 <img src="{{Voyager::image($hotel->thumbnail('medium'))}}" alt="{{$hotel->getTranslatedAttribute('title')}}">
@@ -84,59 +86,9 @@
         </div>
     </div><!-- End Doctor List Section -->
     
-<div id="hm-booking-form" class="layer-stretch">
-    <div class="layer-wrapper">
-        <div class="row">
-            <div class="col-lg-12 text-center">    
-                <div class="theme-material-card">
-                    <div class="sub-ttl layer-ttl-white">Contact Us</div>
-                    <div class="row comment-form">
-                        <div class="col-sm-6">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z, ]*" id="hm-booking-form--name">
-                                <label class="mdl-textfield__label" for="comment-name">Full Name <em> *</em></label>
-                                <span class="mdl-textfield__error">Please Enter Valid Name!</span>
-                                <span class="mdl-textfield__info">For Example: Elham Jafari</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                <input class="mdl-textfield__input" type="text" pattern="[0-9+-]*" id="hm-booking-form--number">
-                                <label class="mdl-textfield__label" for="booking-form--number">Mobile Number <em> * </em><small>( WhatsApp is Prefferd )</small></label>
-                                <span class="mdl-textfield__error">Please Enter Valid Number! For Example: +989120000000</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z, ]*" id="hm-booking-form--country">
-                                <label class="mdl-textfield__label" for="comment-name">Country <em> *</em></label>
-                                <span class="mdl-textfield__info">For Example: Iran</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-input">
-                                <input class="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="hm-booking-form--email">
-                                <label class="mdl-textfield__label" for="comment-email">Email</label>
-                                <span class="mdl-textfield__error">Please Enter Valid Email!</span>
-                                <span class="mdl-textfield__info">For Example: example@gmail.com</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="mdl-textfield mdl-js-textfield form-input">
-                                <textarea class="mdl-textfield__input" rows="4" id="hm-booking-form--comment-message"></textarea>
-                                <label class="mdl-textfield__label" for="comment-message">How can we help you...?</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-submit">
-                                <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect button button-primary" id="hm-booking-form--submit-btn">Submit</button>
-                            </div>
-                        </div>  
-                    </div>
-                </div>
-            </div>
-        </div>    
-    </div>    
-</div>
+    <form action="{{route('category.request')}}" class="form-horizontal cform-2" method="post">
+    @csrf
+    @include('front.common.form')
+    </form>
 @endsection
 

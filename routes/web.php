@@ -39,22 +39,19 @@ Route::middleware(['web', 'localized'])
     
     Route::get('/medical-tourism','Front\HomeController@medicalTourism')->name('aboutMedical');
     Route::get('/medical-tourism/destinations','Front\HomeController@destinations')->name('aboutMedical.destination.index');
-    Route::get('/medical-tourism/destinations/destination','Front\HomeController@destination')->name('aboutMedical.destination.show');
+    Route::get('/medical-tourism/destinations/{city}/{slug?}','Front\HomeController@destination')->name('aboutMedical.destination.show');
     
     Route::get('/blogs','Front\HomeController@blogs')->name('blog.index');
     Route::get('/blogs/{single_post}/{slug?}','Front\HomeController@blog')->name('blog.show');
     
-    Route::get('/faq','Front\HomeController@faq')->name('faq');
     Route::get('/patients-review','Front\HomeController@patient_review')->name('patientReview');
     
     
-    Route::get('/about-us','Front\HomeController@aboutUs')->name('aboutUs');
-    
-    Route::get('/contact','Front\HomeController@contact')->name('contact');
-    
-    // Route::get('/{slug}','Front\HomeController@pages_show')->name('pages.show');
+    Route::get('page/{slug}','Front\HomeController@pages_show')->name('single-page');
+
     
     Route::post('/service/request/store','Front\HomeController@category_request')->name('category.request');
+    Route::post('/comment/store','Front\HomeController@comment_store')->name('comment_store');
     
     Route::group(['prefix' => 'myadmin'], function () {
         Voyager::routes();

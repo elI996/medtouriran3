@@ -61,7 +61,7 @@
         </div>
     </div>
     <!-- Start Header Section -->
-    @include('front.common.header')
+    {!! $front_menu !!}
     <!-- Start Slider Section -->
     @yield('content')
     
@@ -101,8 +101,7 @@
     <script src="/js/jquery.counterup.js"></script>
     <!-- SmoothScroll Plugin JavaScript-->
     <script src="/js/smoothscroll.min.js"></script>
-    
-    <script src="/js/toastr.min.js"></script>
+
     <!--Custom JavaScript for Klinik Template-->
     <script src="/js/custom.js"></script>
     @if(!$is_rtl)

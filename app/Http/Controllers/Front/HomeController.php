@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Cache;
 use DB;
 
 use TCG\Voyager\Models\Page as Page;
-use TCG\Voyager\Models\Post as Post;
 
+use App\Models\Post;
 use App\Models\Category;
 use App\Models\Social;
 use App\Models\Doctor;
@@ -28,6 +28,8 @@ use App\Models\Package;
 use App\Models\Hotel;
 use App\Models\City;
 use App\Models\VideoReview;
+use App\Models\Member;
+use App\Models\Review;
 use App\Models\Request as Req;
 
 class HomeController extends Controller
@@ -35,8 +37,8 @@ class HomeController extends Controller
     
     private $per_page=12;
     private $post_per_home=3;
-    private $doctor_per_home=6;
-    private $banner_per_home=3;
+    private $doctor_per_doctor=3;
+    private $hotel_per_hotel=4;
     private $cache_minutes=1;
     private $testimonial_per_home=5;
     private $package_per_home=3;
@@ -47,11 +49,14 @@ class HomeController extends Controller
     public function __construct() {
        $latest_posts=Post::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit(2)->get();
        $links=Link::all();
+       $cities=City::withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
+       $categories=Category::where('parent_id',null)->withTranslations(App::getLocale())->get();
        View::share ([
            'socials'=>Social::withTranslations(App::getLocale())->get(),
            'is_rtl'=>Helper::isRtl(),
            'latest_posts'=>$latest_posts,
-           'links'=>$links
+           'links'=>$links,
+           'front_menu'=>view('front.common.header',compact(['cities','categories']))->render()
            ]);
     }
     
@@ -61,10 +66,9 @@ class HomeController extends Controller
         $benefits=Benefit::withTranslations(App::getLocale())->get();
         $posts=Post::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->post_per_home)->get();
         $packages=Package::where('parent_id',null)->withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->package_per_home)->get();
-        $banners=Banner::withTranslations(App::getLocale())->limit($this->banner_per_home)->get();
-        $partners=Partner::all();
-
-        return view('front.pages.home.home',compact(['categories','benefits','posts','banners','partners','packages']));
+        $video=VideoReview::withTranslations(App::getLocale())->orderBy('created_at','desc')->first();
+        $cities=City::withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
+        return view('front.pages.home.home',compact(['categories','benefits','posts','packages','video','cities']));
     }
     
 
@@ -89,7 +93,8 @@ class HomeController extends Controller
     }
 
     public function hotel($type,Hotel $hotel,$slug=""){
-        return view('front.pages.services.hotels.hotel',compact('hotel'));
+        $related_hotels=Hotel::where('type',$type)->withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->hotel_per_hotel)->get();
+        return view('front.pages.services.hotels.hotel',compact('hotel','related_hotels'));
     }
 
 
@@ -107,11 +112,15 @@ class HomeController extends Controller
 
     public function doctors(){
         $doctors=Doctor::withTranslations(App::getLocale())->orderBy('created_at','desc')->paginate($this->doctor_per_home);
-        return view('front.pages.services.doctors.doctors',compact('doctors'));
+        $all_doctors=Doctor::withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
+        $categories=Category::where('parent_id','!=',null)->withTranslations(App::getLocale())->get();
+        $hotels=Hotel::withTranslations(App::getLocale())->inRandomOrder()->limit($this->package_per_procedure)->get();
+        return view('front.pages.services.doctors.doctors',compact('doctors','all_doctors','categories','hotels'));
     }
     
     public function doctor(Doctor $doctor, $slug=""){
-        return view('front.pages.services.doctors.doctor',compact('doctor'));
+        $related_doctors=Doctor::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->doctor_per_doctor);
+        return view('front.pages.services.doctors.doctor',compact('doctor','related_doctors'));
     }
 
 
@@ -126,6 +135,7 @@ class HomeController extends Controller
         return view('front.pages.blog.post',compact('single_post','recent_posts'));
     }
 
+
     public function patient_review(){
         $videos=VideoReview::withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
         $testimonials=Testimonial::withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
@@ -133,81 +143,45 @@ class HomeController extends Controller
     }
 
     
+    public function destinations(){
+        $cities=City::withTranslations(App::getLocale())->orderBy('created_at','desc')->get();
+        return view('front.pages.medicalTourism.destinations.destinations',compact('cities'));
+    }
+    
+    public function destination(City $city,$slug=""){
+        $recent_posts=Post::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->post_per_blog)->get();
+        return view('front.pages.medicalTourism.destinations.destination',compact('city','recent_posts'));
+    }
+
+
     public function pages_show($slug){
         $page=Page::where('slug',$slug)->firstOrFail();
         
         if (view()->exists('front.pages.single.'.$slug.'.index')) {
             return view('front.pages.single.'.$slug.'.index',compact('page'));
         } 
-        // else {
-        //     return view('front.pages.single.default',compact('page'));
-        // }
+        else {
+            return view('front.pages.single.default',compact('page'));
+        }
     }
     
-    
-    
-    // public function blog_index(){
-    //     $posts=Post::with('authorId')->withTranslations(App::getLocale())->paginate($this->per_page);
-    //     return view('front.pages.blog.posts',compact('posts'));
-    // }
-    // public function blog_show(Post $post, $slug){
-    //     return view('front.pages.blog.post',compact('post'));
-    // }
-    
-    
-    // public function doctor_index(){
-    //     $doctors=Doctor::with(['networks','categories'])->withTranslations(App::getLocale())->orderBy('order')->paginate($this->per_page);
-    //     $categories= Category::withCount('doctors')->withTranslations()->get();
-    //     return view('front.doctor.index',compact(['doctors','categories']));
-    // }
-    // public function doctor_show(Doctor $doctor,$slug=''){
-    //     return view('front.doctor.show',compact(['doctor']));
-    // }
-    // public function doctor_category_index(Category $category, $slug=''){
-    //     $doctors=$category->doctors;
-    //     $categories= Category::withCount('doctors')->withTranslations()->get();
-    //     return view('front.doctor.index',compact(['doctors','categories']));
-    // }
-    
-    
-    
-    
-    public function home_search(){
-        return view('front.pages.single.search.homeSearch');
+
+    public function home_search(Request $request){
+        $category_title=$request->category;
+        
+        $categories=[];
+        $packages=Package::where('parent_id',null)->withTranslations(App::getLocale())->whereHas('categories', function($q) use ( $category_title ){
+            $q->where('title', $category_title);
+        })->paginate($this->package_per_packages);
+
+        return view('front.pages.packages.packages',compact('categories','packages'));
     }
 
     public function medicalTourism(){
         return view('front.pages.medicalTourism.about.aboutMedicalTourism');
     }
     
-    public function destinations(){
-        return view('front.pages.medicalTourism.destinations.destinations');
-    }
     
-    public function destination(){
-        return view('front.pages.medicalTourism.destinations.destination');
-    }
-    
-
-    public function faq(){
-        return view('front.pages.single.faq.index');
-    }
-     
-    
-    public function aboutUs(){
-        return view('front.pages.single.aboutUs.index');
-    }
-    
-    public function contact(){
-        return view('front.pages.single.contact.index');
-    }
-    
-    
-    
-    
-    // public function category_show(Category $category, $slug){
-    //     return view('front.service.index',compact('category'));
-    // }
     public function category_request(Request $request){
         Req::create($request->all());
         
@@ -217,12 +191,15 @@ class HomeController extends Controller
         ]);
     }
     
+    public function comment_store(Request $request){
+        Review::create($request->all());
+        return redirect()->back()->with([
+            'message'=>trans('messages.success_created'),
+            'alert-type'=>'success'
+        ]);
+    }
     
-    
-    // public function package_show(Package $package, $slug=""){
-    //     return view('front.packages.index',compact('package'));
-    // }
-    
+
     // public function local_switch($local, Request $request){
     //     App::setLocale($local);
         
